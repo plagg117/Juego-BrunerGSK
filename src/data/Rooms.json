@@ -1,0 +1,69 @@
+[
+  {
+    "id": "room-01",
+    "name": "El laboratorio",
+    "order": 1,
+    "requires": null,
+    "section": "I",
+    "pages": "19-27",
+    "concept": "De la búsqueda de significado al procesamiento de información",
+    "intro": "Despiertas con un dolor de cabeza sordo. Una sala blanca, mesas de laboratorio, un ordenador encendido y una puerta de hierro con un candado electrónico. Sobre la mesa hay una grabadora y un cassette con una etiqueta: «Escucha con atención».",
+    "puzzles": ["cassette-01", "sorting-01"],
+    "rescues": "student-01"
+  },
+  {
+    "id": "room-02",
+    "name": "La biblioteca",
+    "order": 2,
+    "requires": "room-01",
+    "section": "II",
+    "pages": "27-31",
+    "concept": "El papel constitutivo de la cultura",
+    "puzzles": [],
+    "rescues": null
+  },
+  {
+    "id": "room-03",
+    "name": "El aula",
+    "order": 3,
+    "requires": "room-02",
+    "section": "III",
+    "pages": "31-35",
+    "concept": "Psicología popular, decir y hacer, acción situada",
+    "puzzles": [],
+    "rescues": null
+  },
+  {
+    "id": "room-04",
+    "name": "El sótano",
+    "order": 4,
+    "requires": "room-03",
+    "section": "IV",
+    "pages": "35-38",
+    "concept": "La biología como restricción, no como causa",
+    "puzzles": [],
+    "rescues": null
+  },
+  {
+    "id": "room-05",
+    "name": "La sala de espejos",
+    "order": 5,
+    "requires": "room-04",
+    "section": "V",
+    "pages": "38-44",
+    "concept": "Relativismo, constructivismo y pragmatismo",
+    "puzzles": [],
+    "rescues": null
+  },
+  {
+    "id": "room-final",
+    "name": "El despacho del profesor",
+    "order": 6,
+    "requires": "room-05",
+    "section": "VI",
+    "pages": "44-45",
+    "concept": "La psicología popular necesita ser explicada, no descalificada",
+    "puzzles": [],
+    "rescues": null
+  }
+]

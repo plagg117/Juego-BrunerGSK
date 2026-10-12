@@ -1,0 +1,35 @@
+/* Encabezado de la sala (RoomView) */
+
+.room {
+  max-width: 720px;
+  margin: 2rem auto 0;
+  padding: 0 0.25rem;
+}
+
+.room__name {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+}
+
+.room__intro {
+  margin: 0 0 1rem;
+  color: #cfcfcf;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.room__status {
+  margin: 0;
+  padding: 0.6rem 0.8rem;
+  color: #bbb;
+  border-left: 3px solid #555;
+}
+
+.room__status:empty {
+  display: none;
+}
+
+.room__status.is-complete {
+  color: #b6f5c4;
+  border-left-color: #4cd277;
+}

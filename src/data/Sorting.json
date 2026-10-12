@@ -1,0 +1,68 @@
+[
+  {
+    "id": "sorting-01",
+    "roomId": "room-01",
+    "title": "Las fichas del ordenador",
+    "instructions": "El ordenador del laboratorio muestra fichas mezcladas. Colócalas en el cajón correcto: SIGNIFICADO o PROCESAMIENTO DE INFORMACIÓN.",
+    "categories": [
+      { "id": "meaning", "label": "Significado" },
+      { "id": "processing", "label": "Procesamiento de información" }
+    ],
+    "items": [
+      {
+        "id": "s1-i1",
+        "text": "Estudia cómo los seres humanos construyen sentido a partir de sus encuentros con el mundo.",
+        "category": "meaning",
+        "explanation": "Describir los significados que las personas crean al encontrarse con el mundo era la meta original de la Revolución Cognitiva."
+      },
+      {
+        "id": "s1-i2",
+        "text": "Se centra en las actividades simbólicas con las que las personas dan sentido al mundo y a sí mismas.",
+        "category": "meaning",
+        "explanation": "Las actividades simbólicas de construcción de significado eran el centro del proyecto original."
+      },
+      {
+        "id": "s1-i3",
+        "text": "Puede enfrentarse a la vaguedad, a la polisemia y a las conexiones metafóricas.",
+        "category": "meaning",
+        "explanation": "El procesamiento de información no puede con la vaguedad ni la polisemia; una psicología del significado sí debe hacerlo."
+      },
+      {
+        "id": "s1-i4",
+        "text": "Se pregunta cómo está organizado el mundo en la mente de un fundamentalista islámico.",
+        "category": "meaning",
+        "explanation": "Es el tipo de pregunta que el procesamiento de información excluye y que una psicología del significado favorece."
+      },
+      {
+        "id": "s1-i5",
+        "text": "Le da igual si lo que almacena son sonetos de Shakespeare o cifras al azar.",
+        "category": "processing",
+        "explanation": "La información es indiferente al significado: el sistema trabaja ciego a lo que guarda."
+      },
+      {
+        "id": "s1-i6",
+        "text": "Necesita planificación previa y reglas precisas.",
+        "category": "processing",
+        "explanation": "El procesamiento solo opera con entradas exactas y programas de operaciones elementales."
+      },
+      {
+        "id": "s1-i7",
+        "text": "Considera informativo un mensaje si reduce el número de elecciones alternativas.",
+        "category": "processing",
+        "explanation": "Es la definición de información de la teoría clásica de la información."
+      },
+      {
+        "id": "s1-i8",
+        "text": "Se pregunta cuál es la mejor forma de enviar datos de control a un operador para mantener un vehículo en órbita.",
+        "category": "processing",
+        "explanation": "Es el tipo de pregunta que el procesamiento de información favorece, frente a las preguntas sobre significado."
+      }
+    ],
+    "passScore": 6,
+    "feedback": {
+      "correct": "El ordenador se apaga con un zumbido. El candado de la puerta se abre.",
+      "incorrect": "Una alarma suena brevemente. Las fichas vuelven a mezclarse."
+    },
+    "source": { "section": "I", "pages": "19-24" }
+  }
+]

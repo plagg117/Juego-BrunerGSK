@@ -1,0 +1,58 @@
+[
+  {
+    "id": "cassette-01",
+    "roomId": "room-01",
+    "title": "Grabación 1: El invierno del objetivismo",
+    "audio": "assets/audio/cassette-01.wav",
+    "maxPlays": 3,
+    "transcript": [
+      "Bienvenidos, mis queridos estudiantes. Pónganse cómodos... aunque no tienen mucha opción.",
+      "Hace décadas nació la Revolución Cognitiva con una meta noble: recuperar la mente en las ciencias humanas, después de un largo y frío invierno de objetivismo.",
+      "Lo que se buscaba era poner el significado en el centro de la psicología. No los estímulos y las respuestas. No la conducta que se puede observar. El significado.",
+      "Pero algo salió mal. Con el tiempo, el interés se desplazó del significado a la información, y la construcción de significado fue reemplazada por su procesamiento.",
+      "Y fíjense bien: la información es indiferente al significado. Al sistema le da igual si guarda sonetos de Shakespeare o cifras al azar.",
+      "La nueva metáfora dominante de la mente fue el ordenador. Y lo que importaba ya no era qué significaba algo, sino si era computable.",
+      "Yo, por supuesto, me quedé con la mente-máquina. Es más limpia. Nunca se pregunta qué significa nada.",
+      "Presten atención, porque esa puerta no se abrirá si no demuestran que han entendido."
+    ],
+    "paper": {
+      "title": "Papel arrugado hallado junto a la grabadora",
+      "instructions": "Completa cada oración con la palabra correcta, según lo que dijo la grabación.",
+      "sentences": [
+        {
+          "id": "p1-s1",
+          "text": "La Revolución Cognitiva buscaba recuperar la ___ en las ciencias humanas.",
+          "answer": "mente",
+          "acceptedAnswers": ["mente"],
+          "distractors": ["conducta", "memoria"]
+        },
+        {
+          "id": "p1-s2",
+          "text": "El concepto que se quería poner en el centro de la psicología era el ___.",
+          "answer": "significado",
+          "acceptedAnswers": ["significado"],
+          "distractors": ["estímulo", "impulso"]
+        },
+        {
+          "id": "p1-s3",
+          "text": "Con el tiempo, la construcción de significado fue reemplazada por el ___ de la información.",
+          "answer": "procesamiento",
+          "acceptedAnswers": ["procesamiento"],
+          "distractors": ["descubrimiento", "rechazo"]
+        },
+        {
+          "id": "p1-s4",
+          "text": "La nueva metáfora dominante de la mente fue el ___.",
+          "answer": "ordenador",
+          "acceptedAnswers": ["ordenador", "computador", "computadora"],
+          "distractors": ["reflejo", "símbolo"]
+        }
+      ]
+    },
+    "feedback": {
+      "correct": "El candado emite un pitido seco. Una luz verde parpadea.",
+      "incorrect": "La grabadora cruje. «Qué decepción... escuchen otra vez.»"
+    },
+    "source": { "section": "I", "pages": "19-24" }
+  }
+]
