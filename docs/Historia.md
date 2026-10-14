@@ -59,6 +59,17 @@ Cinco salas y el despacho final, en el orden del capítulo. El detalle de cada s
 | 5 | La sala de espejos | V |
 | ★ | El despacho del profesor | VI |
 
+### El papel después del cassette
+
+El papel **no aparece en todas las salas** y cada vez es de un tipo distinto, para que no se repita (decisión confirmada):
+
+- **Sala 1:** completar oraciones.
+- **Sala 3:** encontrar el error.
+- **Despacho final:** unir conceptos con definiciones (repaso).
+- **Salas 2, 4 y 5:** sin papel. El cassette lleva directamente al reto, y el reto usa lo que se dice en la grabación.
+
+El detalle de cada tipo está en `docs/papeles-nuevos.md`.
+
 ## Finales
 
 Hay dos finales:
@@ -67,3 +78,12 @@ Hay dos finales:
 - **Final B: algunos salvos.** Se perdió al menos un compañero y salen solo los que quedaron.
 
 **Propuesta (por ajustar al probar el juego):** cada sala tiene un límite de errores. Si el jugador lo supera, el profesor se lleva al compañero de esa sala. El final depende de cuántos compañeros llegan al despacho.
+
+## Pendiente por definir
+
+- Motivo del profesor y la revelación en el despacho final.
+- Pistas sobre ese motivo repartidas en los cassettes y en cada sala.
+- Qué compañero se libera en cada sala, según el personaje que elija el jugador.
+- Reglas definitivas de errores y pérdida de compañeros.
+- Texto de cada final.
+- Guiones de las salas 2 a 5 y del despacho final.

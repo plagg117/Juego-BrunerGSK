@@ -19,8 +19,9 @@
     "section": "II",
     "pages": "27-31",
     "concept": "El papel constitutivo de la cultura",
-    "puzzles": [],
-    "rescues": null
+    "intro": "La puerta de hierro cede y te lleva a una biblioteca silenciosa. Hay estantes hasta el techo, mesas de lectura cubiertas de polvo y, al fondo, una puerta con tres cerraduras de bronce. Sobre una mesa, otra grabadora. La etiqueta del cassette dice: «Las tres razones».",
+    "puzzles": ["cassette-02", "sorting-02"],
+    "rescues": "student-02"
   },
   {
     "id": "room-03",
@@ -30,8 +31,9 @@
     "section": "III",
     "pages": "31-35",
     "concept": "Psicología popular, decir y hacer, acción situada",
-    "puzzles": [],
-    "rescues": null
+    "intro": "El pasillo termina en un aula idéntica a las de cualquier facultad: pupitres en fila, un pizarrón lleno de tiza y un proyector que parpadea. En el escritorio hay otra grabadora. En el pizarrón, una frase a medio borrar: «Lo que dicen no es lo que hacen». La etiqueta del cassette dice: «Decir y hacer».",
+    "puzzles": ["cassette-03", "choices-01"],
+    "rescues": "student-03"
   },
   {
     "id": "room-04",
@@ -41,8 +43,9 @@
     "section": "IV",
     "pages": "35-38",
     "concept": "La biología como restricción, no como causa",
-    "puzzles": [],
-    "rescues": null
+    "intro": "Una escalera estrecha baja a un sótano sin ventanas. Hay una puerta metálica con un teclado numérico y, a un lado, una pantalla negra con un cursor que parpadea. En un estante, otra grabadora. La etiqueta del cassette dice: «Los límites».",
+    "puzzles": ["cassette-04", "memory-01"],
+    "rescues": "student-04"
   },
   {
     "id": "room-05",
@@ -52,7 +55,8 @@
     "section": "V",
     "pages": "38-44",
     "concept": "Relativismo, constructivismo y pragmatismo",
-    "puzzles": [],
+    "intro": "La puerta se abre a una sala llena de espejos. Cada uno te devuelve una versión distinta de ti, y en todos hay una frase escrita con vaho. Al fondo, sobre una banqueta, hay una grabadora. La etiqueta del cassette dice: «Perspectivas».",
+    "puzzles": ["cassette-05", "choices-02"],
     "rescues": null
   },
   {
@@ -63,7 +67,8 @@
     "section": "VI",
     "pages": "44-45",
     "concept": "La psicología popular necesita ser explicada, no descalificada",
-    "puzzles": [],
-    "rescues": null
+    "intro": "Una escalera de piedra te lleva a un despacho con una lámpara verde sobre un escritorio de roble. En la pared hay un retrato sin terminar, de alguien que no logras reconocer. Sobre la mesa, una grabadora y una hoja con dos columnas de palabras sueltas. La etiqueta del cassette dice: «Repaso».",
+    "puzzles": ["cassette-06", "choices-03"],
+    "rescues": "all"
   }
 ]

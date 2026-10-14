@@ -1,0 +1,42 @@
+[
+  {
+    "id": "memory-01",
+    "roomId": "room-04",
+    "title": "El código del sótano",
+    "instructions": "La puerta metálica pide un código. La pantalla lo mostrará unos segundos. Memorízalo y escríbelo en el teclado.",
+    "rounds": [
+      {
+        "id": "mr-1",
+        "digits": 9,
+        "groupSize": 0,
+        "showSeconds": 4,
+        "required": false,
+        "intro": "Primera prueba: memoriza el código tal como aparece.",
+        "explanation": "Nueve dígitos sueltos superan el «siete más o menos dos» de Miller. Si fallaste, era lo esperable; si acertaste, estás por encima del promedio (p. 36)."
+      },
+      {
+        "id": "mr-2",
+        "digits": 9,
+        "groupSize": 3,
+        "showSeconds": 4,
+        "required": true,
+        "intro": "Segunda prueba: el código aparece ahora en bloques.",
+        "explanation": "Agrupar en bloques (chunks) convierte nueve unidades sueltas en solo tres (p. 36)."
+      },
+      {
+        "id": "mr-3",
+        "digits": 12,
+        "groupSize": 3,
+        "showSeconds": 5,
+        "required": true,
+        "intro": "Última prueba: un código más largo, también en bloques.",
+        "explanation": "Con bloques, doce dígitos son solo cuatro unidades: la cultura inventa herramientas que superan los límites que impone la biología (p. 36)."
+      }
+    ],
+    "feedback": {
+      "correct": "El teclado emite un pitido largo. La puerta metálica se abre con un crujido.",
+      "incorrect": "El teclado parpadea en rojo y aparece un código nuevo."
+    },
+    "source": { "section": "IV", "pages": "35-38" }
+  }
+]

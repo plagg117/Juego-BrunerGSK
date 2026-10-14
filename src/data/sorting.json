@@ -64,5 +64,78 @@
       "incorrect": "Una alarma suena brevemente. Las fichas vuelven a mezclarse."
     },
     "source": { "section": "I", "pages": "19-24" }
+  },
+  {
+    "id": "sorting-02",
+    "roomId": "room-02",
+    "title": "La puerta de las tres cerraduras",
+    "instructions": "Cada cerradura de bronce se abre con una de las razones que da Bruner para considerar la cultura fundamental. Coloca cada ficha en la cerradura a la que corresponde.",
+    "categories": [
+      { "id": "methodological", "label": "Razón metodológica" },
+      { "id": "public-meaning", "label": "Significado público" },
+      { "id": "folk-psychology", "label": "Psicología popular" }
+    ],
+    "items": [
+      {
+        "id": "s2-i1",
+        "text": "No se puede construir la psicología humana basándose solo en el individuo.",
+        "category": "methodological",
+        "explanation": "Es el argumento constitutivo: la mente humana se forma y se realiza a través de la cultura."
+      },
+      {
+        "id": "s2-i2",
+        "text": "Las potencialidades mentales del ser humano se realizan a través de la cultura, no al margen de ella.",
+        "category": "methodological",
+        "explanation": "La participación en la cultura es constitutiva de lo humano, por eso el individuo aislado no basta como punto de partida."
+      },
+      {
+        "id": "s2-i3",
+        "text": "Los seres humanos no terminan en su propia piel: son una expresión de la cultura.",
+        "category": "methodological",
+        "explanation": "Es la idea de Kluckhohn que Bruner usa para sostener el argumento constitutivo."
+      },
+      {
+        "id": "s2-i4",
+        "text": "El niño entra en la vida de su grupo participando en un proceso público, no con ejercicios privados.",
+        "category": "public-meaning",
+        "explanation": "El significado se aprende y se negocia en público; no se construye a solas."
+      },
+      {
+        "id": "s2-i5",
+        "text": "Incluso los secretos, una vez revelados, resultan públicamente interpretables.",
+        "category": "public-meaning",
+        "explanation": "Hasta lo más privado se interpreta con categorías compartidas por la cultura."
+      },
+      {
+        "id": "s2-i6",
+        "text": "Existen formas de discurso compartidas para negociar las diferencias de significado e interpretación.",
+        "category": "public-meaning",
+        "explanation": "Sin procedimientos públicos de negociación, la cultura caería en la desorganización."
+      },
+      {
+        "id": "s2-i7",
+        "text": "Es la explicación que da la cultura de qué hace que los seres humanos funcionen.",
+        "category": "folk-psychology",
+        "explanation": "Así define Bruner la psicología popular: una teoría de la mente, de la motivación y de los demás."
+      },
+      {
+        "id": "s2-i8",
+        "text": "Se ocupa de las creencias, los deseos, las intenciones y los compromisos.",
+        "category": "folk-psychology",
+        "explanation": "Son los estados intencionales que la psicología científica suele despreciar."
+      },
+      {
+        "id": "s2-i9",
+        "text": "Las leyes, las instituciones educativas y las estructuras familiares sirven para inculcarla.",
+        "category": "folk-psychology",
+        "explanation": "Las instituciones culturales transmiten la psicología popular de una generación a otra."
+      }
+    ],
+    "passScore": 7,
+    "feedback": {
+      "correct": "Las tres cerraduras giran a la vez. La pesada puerta de madera se abre con un largo crujido.",
+      "incorrect": "Las cerraduras se atascan con un chirrido. Las fichas vuelven a mezclarse."
+    },
+    "source": { "section": "II", "pages": "27-30" }
   }
 ]

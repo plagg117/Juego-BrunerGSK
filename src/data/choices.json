@@ -1,0 +1,224 @@
+[
+  {
+    "id": "choices-01",
+    "roomId": "room-03",
+    "title": "Escenas del aula",
+    "instructions": "El proyector muestra cinco escenas. En cada una, elige la interpretación que defendería Bruner.",
+    "passScore": 4,
+    "scenes": [
+      {
+        "id": "s3-sc1",
+        "narration": "En el pasillo, alguien te empuja y dice enseguida: «Lo siento».",
+        "question": "¿Qué permite interpretar ese empujón como un accidente?",
+        "options": [
+          { "id": "a", "text": "Que se observa el movimiento con precisión y se mide." },
+          { "id": "b", "text": "Que lo que la persona dice da sentido al acto y se interpreta junto con él." },
+          { "id": "c", "text": "Nada: las palabras no importan, solo el movimiento del cuerpo." }
+        ],
+        "correctOption": "b",
+        "explanation": "El acto solo se interpreta en función de lo que el actor dice que pretendía: decir «lo siento» al empujar sin querer lo muestra (p. 34)."
+      },
+      {
+        "id": "s3-sc2",
+        "narration": "Un compañero te hace un comentario hiriente. Cuando te quejas, responde: «No quise ofenderte».",
+        "question": "¿Qué hacemos normalmente ante un acto ofensivo?",
+        "options": [
+          { "id": "a", "text": "Averiguar si lo que parece haber hecho es lo que pretendía. Si fue sin querer, se lo exonera." },
+          { "id": "b", "text": "Ignorar sus explicaciones, porque las excusas nunca son de fiar." },
+          { "id": "c", "text": "Medir su reacción para predecir su próxima conducta." }
+        ],
+        "correctOption": "a",
+        "explanation": "Primero averiguamos si el acto era lo que pretendía; si fue involuntario, se lo exonera, y si fue a propósito se intenta razonar con él (p. 33)."
+      },
+      {
+        "id": "s3-sc3",
+        "narration": "Dos personas firman un contrato. Una de ellas no cumple y el caso llega a un tribunal.",
+        "question": "¿Qué examina el tribunal?",
+        "options": [
+          { "id": "a", "text": "Solo lo que se hizo, sin importar lo que se había acordado." },
+          { "id": "b", "text": "Solo lo que se acordó, sin importar lo que se hizo." },
+          { "id": "c", "text": "La relación entre lo que se dijo que se haría y lo que se hizo." }
+        ],
+        "correctOption": "c",
+        "explanation": "Las leyes contractuales versan sobre la relación entre lo que se hace y lo que se dijo, un ejemplo del diálogo formal de la vida social (p. 33)."
+      },
+      {
+        "id": "s3-sc4",
+        "narration": "Un amigo te llama «tonto», pero lo dice sonriendo, en medio de una broma.",
+        "question": "¿De qué depende el significado de esa palabra?",
+        "options": [
+          { "id": "a", "text": "Solo de lo que dice el diccionario." },
+          { "id": "b", "text": "De la acción en la que ocurre: el gesto, el tono y la situación." },
+          { "id": "c", "text": "Solo de una intención oculta que nadie puede conocer." }
+        ],
+        "correctOption": "b",
+        "explanation": "El significado de la palabra está determinado por el tren de acción en que ocurre, igual que el de la acción depende de lo que los actores dicen que pretenden (p. 33)."
+      },
+      {
+        "id": "s3-sc5",
+        "narration": "Uno de tus compañeros propone: «Ignoremos lo que la gente dice. Solo importa lo que hace».",
+        "question": "¿Cómo respondería Bruner?",
+        "options": [
+          { "id": "a", "text": "Tiene razón: lo que se dice es solo contenido manifiesto." },
+          { "id": "b", "text": "Tiene razón: lo único verificable es la conducta." },
+          { "id": "c", "text": "Decir y hacer son una unidad inseparable; separarlos es hacer mala psicología." }
+        ],
+        "correctOption": "c",
+        "explanation": "Decir y hacer son funcionalmente inseparables en una psicología orientada culturalmente; separarlos es mala filosofía, mala antropología y mala psicología (p. 34)."
+      }
+    ],
+    "feedback": {
+      "correct": "Las luces del aula se estabilizan. En el fondo, una puerta que antes no estaba se abre sin ruido.",
+      "incorrect": "El proyector parpadea y las escenas vuelven a empezar desde el principio."
+    },
+    "source": { "section": "III", "pages": "31-35" }
+  },
+  {
+    "id": "choices-02",
+    "roomId": "room-05",
+    "title": "Los espejos",
+    "instructions": "Cada espejo muestra una pregunta o una afirmación. Elige la respuesta que daría Bruner.",
+    "passScore": 4,
+    "scenes": [
+      {
+        "id": "s5-sc1",
+        "narration": "En el primer espejo hay una frase escrita con vaho: «La Historia es la crónica de la lucha de clases». Debajo, una pregunta: «¿Capta esa frase adecuadamente la cuestión?».",
+        "question": "¿Cómo la reformularía una mirada pragmática?",
+        "options": [
+          { "id": "a", "text": "«¿Es esa frase una verdad absoluta, sí o no?»" },
+          { "id": "b", "text": "«¿A qué me estaría comprometiendo si la creyese?»" },
+          { "id": "c", "text": "«¿Quién la dijo primero y en qué año?»" }
+        ],
+        "correctOption": "b",
+        "explanation": "Las preguntas pragmáticas se fijan en qué supondría creer la frase y a qué compromete, en lugar de preguntar si «capta» la cuestión (p. 40)."
+      },
+      {
+        "id": "s5-sc2",
+        "narration": "En el segundo espejo, un informe asegura que cierto grupo «tiene menos valía intelectual» porque obtiene peores notas.",
+        "question": "¿Qué pregunta haría una crítica pragmática?",
+        "options": [
+          { "id": "a", "text": "«¿Cuál es la nota exacta de cada persona del grupo?»" },
+          { "id": "b", "text": "«¿Qué tipo de resultado es ese y qué significan realmente el rendimiento escolar y la valía intelectual?»" },
+          { "id": "c", "text": "«¿Podemos repetir el mismo examen para confirmar el resultado?»" }
+        ],
+        "correctOption": "b",
+        "explanation": "En lugar de aceptar el resultado, se pregunta qué significa el rendimiento escolar y si la «valía intelectual» es una sola cosa o varias (p. 40)."
+      },
+      {
+        "id": "s5-sc3",
+        "narration": "En el tercer espejo, tu reflejo dice: «Si el conocimiento depende de la perspectiva, entonces todo vale».",
+        "question": "¿Cómo respondería Bruner?",
+        "options": [
+          { "id": "a", "text": "Tiene razón: sin una realidad única, cualquier creencia vale lo mismo." },
+          { "id": "b", "text": "No: lo mejor es ser conscientes de nuestra propia perspectiva y de la de los demás al decir que algo es correcto o incorrecto." },
+          { "id": "c", "text": "Tiene razón, así que es mejor no opinar." }
+        ],
+        "correctOption": "b",
+        "explanation": "El constructivismo no lleva al «todo vale»: exige ser conscientes de la propia perspectiva y de la ajena (pp. 39-41)."
+      },
+      {
+        "id": "s5-sc4",
+        "narration": "En el cuarto espejo, tres reflejos discuten de dónde vienen los valores.",
+        "question": "¿Cuál es la visión de la psicología cultural?",
+        "options": [
+          { "id": "a", "text": "Son impulsos viscerales de cada individuo." },
+          { "id": "b", "text": "Son el resultado de calcular utilidad y probabilidad en cada elección." },
+          { "id": "c", "text": "Son comunales: cobran sentido desde las formas de vida de una comunidad cultural." }
+        ],
+        "correctOption": "c",
+        "explanation": "Los valores son comunales y se entienden desde nuestras relaciones con una comunidad cultural; no son solo impulsos ni cálculos individuales (pp. 41-43)."
+      },
+      {
+        "id": "s5-sc5",
+        "narration": "En el último espejo, el mundo aparece fragmentado en valores que chocan entre sí.",
+        "question": "¿Qué cabe esperar, según Bruner?",
+        "options": [
+          { "id": "a", "text": "Imponer un valor absoluto para que desaparezcan las incertidumbres." },
+          { "id": "b", "text": "Un pluralismo viable, respaldado por la voluntad de negociar nuestras diferencias." },
+          { "id": "c", "text": "Que cada cultura se aísle de las demás." }
+        ],
+        "correctOption": "b",
+        "explanation": "Insistir en un valor absoluto no hará desaparecer las incertidumbres; lo único que cabe esperar es un pluralismo viable respaldado por la voluntad de negociar (p. 43)."
+      }
+    ],
+    "feedback": {
+      "correct": "Los espejos se aquietan. Uno de ellos se abre como una puerta.",
+      "incorrect": "Los espejos tiemblan y las preguntas vuelven a aparecer desde el principio."
+    },
+    "source": { "section": "V", "pages": "38-44" }
+  },
+  {
+    "id": "choices-03",
+    "roomId": "room-final",
+    "title": "Frente a frente",
+    "instructions": "La voz del profesor defiende sus posturas una por una. Elige la réplica que daría Bruner.",
+    "passScore": 4,
+    "scenes": [
+      {
+        "id": "sf-sc1",
+        "narration": "Desde el altavoz del escritorio, la voz del profesor afirma: «Libertad y dignidad son ilusiones sin valor científico».",
+        "question": "¿Cuál es la réplica correcta?",
+        "options": [
+          { "id": "a", "text": "Tiene razón: la ciencia debe descartarlas." },
+          { "id": "b", "text": "Son conceptos esenciales del sistema de creencias de una cultura democrática, aunque la psicología científica los trate como ilusiones." },
+          { "id": "c", "text": "No importan, porque la psicología solo estudia reflejos condicionados." }
+        ],
+        "correctOption": "b",
+        "explanation": "La psicología científica llega a tratar la libertad y la dignidad como ilusión, aunque son esenciales en el sistema de creencias de una cultura democrática (p. 44)."
+      },
+      {
+        "id": "sf-sc2",
+        "narration": "La voz insiste: «La psicología debe ocuparse solo de verdades objetivas y evitar la crítica cultural».",
+        "question": "¿Qué respondería Bruner?",
+        "options": [
+          { "id": "a", "text": "De acuerdo: la objetividad exige alejarse de la cultura." },
+          { "id": "b", "text": "Incluso la psicología científica se moverá mejor al reconocer que sus verdades son relativas al punto de vista que adopta." },
+          { "id": "c", "text": "La psicología debería dedicarse solo a la crítica cultural y olvidar la ciencia." }
+        ],
+        "correctOption": "b",
+        "explanation": "Las verdades sobre la condición humana, como todas, son relativas al punto de vista adoptado; reconocerlo hace más eficaz a la psicología (p. 45)."
+      },
+      {
+        "id": "sf-sc3",
+        "narration": "La voz se vuelve burlona: «La psicología popular no es más que un conjunto de ilusiones tranquilizadoras».",
+        "question": "¿Cuál es la réplica correcta?",
+        "options": [
+          { "id": "a", "text": "Sí, y por eso hay que eliminarla." },
+          { "id": "b", "text": "No: son las creencias y las hipótesis de trabajo de la cultura sobre lo que hace posible y satisfactorio vivir juntos." },
+          { "id": "c", "text": "Sí, pero son útiles aunque sean falsas." }
+        ],
+        "correctOption": "b",
+        "explanation": "La psicología popular es el conjunto de creencias e hipótesis de trabajo de una cultura sobre lo que permite vivir juntos, incluso a costa de grandes sacrificios personales (p. 45)."
+      },
+      {
+        "id": "sf-sc4",
+        "narration": "La voz sigue: «La mente humana es una concatenación de reflejos y nada más. ¿Qué importa cómo la describamos?».",
+        "question": "¿Por qué importa esa imagen del ser humano?",
+        "options": [
+          { "id": "a", "text": "No importa: las teorías no afectan a las personas." },
+          { "id": "b", "text": "Importa: lo que la psicología dice del ser humano acaba influyendo en cómo las personas se ven a sí mismas." },
+          { "id": "c", "text": "Solo importa si los experimentos son poco rigurosos." }
+        ],
+        "correctOption": "b",
+        "explanation": "A Bruner le preocupa qué sucede cuando el modelo empieza a pensar que es como aparece en su retrato: las imágenes que ofrece la psicología influyen en cómo las personas se ven (pp. 44-45)."
+      },
+      {
+        "id": "sf-sc5",
+        "narration": "La voz queda en silencio un momento. Después pregunta: «Entonces, ¿qué debería hacer la psicología con la psicología popular?».",
+        "question": "¿Cuál es la respuesta final?",
+        "options": [
+          { "id": "a", "text": "Reemplazarla por completo por la psicología científica." },
+          { "id": "b", "text": "Ignorarla." },
+          { "id": "c", "text": "Explicarla, no descalificarla." }
+        ],
+        "correctOption": "c",
+        "explanation": "La conclusión del capítulo: la psicología popular necesita ser explicada, no descalificada (p. 45)."
+      }
+    ],
+    "feedback": {
+      "correct": "La voz se apaga. La lámpara verde parpadea una vez y, al fondo del despacho, una puerta se abre.",
+      "incorrect": "La voz ríe en el altavoz. «Otra vez. Despacio.»"
+    },
+    "source": { "section": "VI", "pages": "44-45" }
+  }
+]

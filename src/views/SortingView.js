@@ -1,32 +1,4 @@
-/**
- * Crea un elemento con una clase y, opcionalmente, un texto.
- * @param {string} tag
- * @param {string} className
- * @param {string} [text]
- * @returns {HTMLElement}
- */
-function createElement(tag, className, text = "") {
-  const element = document.createElement(tag);
-  element.className = className;
-  if (text) {
-    element.textContent = text;
-  }
-  return element;
-}
-
-/**
- * Crea un botón con una clase y una función para el clic.
- * @param {string} text
- * @param {string} className
- * @param {() => void} onClick
- * @returns {HTMLButtonElement}
- */
-function createButton(text, className, onClick) {
-  const button = createElement("button", className, text);
-  button.type = "button";
-  button.addEventListener("click", onClick);
-  return button;
-}
+import { createElement, createButton } from "../utils/dom.js";
 
 /**
  * Vista del rompecabezas de clasificación.

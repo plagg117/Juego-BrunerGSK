@@ -54,5 +54,186 @@
       "incorrect": "La grabadora cruje. «Qué decepción... escuchen otra vez.»"
     },
     "source": { "section": "I", "pages": "19-24" }
+  },
+  {
+    "id": "cassette-02",
+    "roomId": "room-02",
+    "title": "Grabación 2: Las tres razones",
+    "audio": "assets/audio/cassette-02.wav",
+    "maxPlays": 3,
+    "transcript": [
+      "Veo que siguen vivos. Qué perseverancia. Bienvenidos a mi biblioteca.",
+      "Una pregunta, mientras recuperan el aliento: ¿de dónde sacaron las palabras con las que piensan? ¿Las inventaron ustedes?",
+      "Los psicólogos hemos tenido la costumbre de pensar desde puntos de vista individualistas. Estudiábamos cómo cada persona adquiría el lenguaje y los símbolos, igual que un organismo se adapta a su entorno. Pero esos sistemas simbólicos ya estaban allí, arraigados en el lenguaje y la cultura.",
+      "Primera razón: es imposible construir la psicología humana basándose solo en el individuo. Como decía Geertz, no hay una naturaleza humana al margen de la cultura.",
+      "Segunda razón: al participar en la cultura, el significado se hace público y compartido. Nadie aprende a vivir con otros practicando a solas.",
+      "Tercera razón: la psicología popular, la explicación que da la cultura de qué hace que los seres humanos funcionen. Creencias, deseos, intenciones... Yo las encuentro, digamos, poco rigurosas.",
+      "Tres razones, tres cerraduras. Esa puerta no se abrirá hasta que sepan cuál es cuál."
+    ],
+    "feedback": {
+      "correct": "Un clic metálico resuena entre las estanterías. Junto a cada cerradura de la puerta aparece una inscripción.",
+      "incorrect": "El profesor chasquea la lengua en la grabación. «Otra vez, por favor.»"
+    },
+    "source": { "section": "II", "pages": "27-30" }
+  },
+  {
+    "id": "cassette-03",
+    "roomId": "room-03",
+    "title": "Grabación 3: Decir y hacer",
+    "audio": "assets/audio/cassette-03.wav",
+    "maxPlays": 3,
+    "transcript": [
+      "Bienvenidos al aula. Siéntense, como en cualquier clase. Hoy toca hablar de las objeciones.",
+      "La psicología científica desconfía de los estados subjetivos. Dice que lo que la gente cuenta sobre sí misma no es de fiar, que lo real es lo que hace.",
+      "Y hay estudios que muestran que la gente ni siquiera sabe explicar por qué elige lo que elige. Delicioso, ¿verdad?",
+      "El texto de Bruner responde con una idea que a mí, lo confieso, me incomoda: decir y hacer constituyen una unidad inseparable.",
+      "Una psicología que mira la cultura debe basarse no solo en lo que la gente hace, sino también en lo que dice que hace, y en lo que dice que la llevó a hacerlo.",
+      "El significado de una acción solo puede interpretarse en función de lo que sus actores dicen que pretenden. Piensen en alguien que dice «lo siento» mientras empuja a otro sin querer.",
+      "Por eso la psicología cultural no se ocupa de la conducta, sino de la acción: la conducta con intención, situada en un escenario cultural.",
+      "Veamos ahora si saben interpretar una escena. Les advierto: observo cada respuesta."
+    ],
+    "paper": {
+      "title": "Apunte de clase, escrito con tiza sobre un papel doblado",
+      "instructions": "Completa cada oración con la palabra correcta, según lo que dijo la grabación.",
+      "sentences": [
+        {
+          "id": "p3-s1",
+          "text": "Decir y hacer constituyen una unidad funcionalmente ___.",
+          "answer": "inseparable",
+          "acceptedAnswers": ["inseparable"],
+          "distractors": ["contradictoria", "opcional"]
+        },
+        {
+          "id": "p3-s2",
+          "text": "Una psicología sensible a la cultura debe basarse también en lo que la gente ___ que hace.",
+          "answer": "dice",
+          "acceptedAnswers": ["dice"],
+          "distractors": ["oculta", "ignora"]
+        },
+        {
+          "id": "p3-s3",
+          "text": "El significado de una acción solo puede interpretarse en función de lo que los actores dicen que ___.",
+          "answer": "pretenden",
+          "acceptedAnswers": ["pretenden"],
+          "distractors": ["recuerdan", "temen"]
+        },
+        {
+          "id": "p3-s4",
+          "text": "La psicología cultural no se ocupa de la conducta, sino de la ___.",
+          "answer": "acción",
+          "acceptedAnswers": ["acción"],
+          "distractors": ["emoción", "memoria"]
+        }
+      ]
+    },
+    "feedback": {
+      "correct": "El proyector del aula se enciende y muestra una escena. Después otra, y otra más.",
+      "incorrect": "El profesor suspira en la grabación. «Otra vez, por favor.»"
+    },
+    "source": { "section": "III", "pages": "31-35" }
+  },
+  {
+    "id": "cassette-04",
+    "roomId": "room-04",
+    "title": "Grabación 4: Los límites",
+    "audio": "assets/audio/cassette-04.wav",
+    "maxPlays": 3,
+    "transcript": [
+      "Bajaron al sótano. Aquí no hay ventanas, así que no se distraigan con el paisaje.",
+      "Durante mucho tiempo se creyó que la cultura era solo una capa superpuesta sobre una naturaleza humana determinada por la biología, y que las causas de la conducta estaban en ese sustrato.",
+      "Bruner sostiene otra cosa: las verdaderas causas de la acción humana son la cultura y la búsqueda de significado dentro de ella. La biología es, como mucho, una restricción o una condición.",
+      "Un motor no es la causa por la que van en coche al supermercado. Sin motor no llegarían, pero el motor no decide qué compran.",
+      "Y esas restricciones son también un reto para la invención cultural. Las herramientas de una cultura son prótesis que permiten superar los límites naturales del funcionamiento humano.",
+      "Un ejemplo famoso: la memoria inmediata. George Miller observó que solo podemos retener siete elementos, más o menos dos.",
+      "Pero los seres humanos inventaron sistemas de codificación, como los números octales o los trucos mnemotécnicos. Gracias a ellos pasamos de retener unidades mínimas a retener bloques, los llamados chunks.",
+      "La biología pone límites, pero no para siempre. Pónganlo a prueba: esa puerta se abre con un código de memoria."
+    ],
+    "feedback": {
+      "correct": "La pantalla negra se enciende y muestra una fila de números.",
+      "incorrect": "La grabadora cruje. «Más atención, por favor.»"
+    },
+    "source": { "section": "IV", "pages": "35-38" }
+  },
+  {
+    "id": "cassette-05",
+    "roomId": "room-05",
+    "title": "Grabación 5: Perspectivas",
+    "audio": "assets/audio/cassette-05.wav",
+    "maxPlays": 3,
+    "transcript": [
+      "Bienvenidos a la sala de espejos. Mírense bien: cada uno ve algo distinto.",
+      "Aparece entonces el problema del relativismo. Si la cultura da forma a la mente, ¿no quedamos encerrados en un relativismo sin escapatoria?",
+      "Bruner propone cambiar la pregunta. Lo importante no es si lo que conocemos es absoluto o relativo, sino reconocer que el conocimiento es correcto o incorrecto según la perspectiva que adoptamos.",
+      "Eso es el constructivismo. No significa que todo valga: significa ser conscientes de nuestra propia perspectiva y de la de los demás.",
+      "El pragmatismo ayuda. En lugar de preguntar si una frase capta bien la cuestión, pregunten qué supondría creerla, o a qué se comprometerían si la creyeran.",
+      "Con los valores pasa igual: no son impulsos aislados ni cálculos de utilidad. Son comunales, y se entienden desde las formas de vida de una comunidad.",
+      "Y si los valores chocan, lo único que cabe esperar es un pluralismo viable, respaldado por la voluntad de negociar nuestras diferencias.",
+      "Veamos si saben hacerle las preguntas correctas a su propio reflejo."
+    ],
+    "feedback": {
+      "correct": "En cada espejo aparece una pregunta, escrita con vaho.",
+      "incorrect": "La grabadora cruje. «Escuchen otra vez.»"
+    },
+    "source": { "section": "V", "pages": "38-44" }
+  },
+  {
+    "id": "cassette-06",
+    "roomId": "room-final",
+    "title": "Grabación 6: Repaso",
+    "audio": "assets/audio/cassette-06.wav",
+    "maxPlays": 3,
+    "transcript": [
+      "Llegaron hasta mi despacho. Debo admitir que no esperaba tanta perseverancia.",
+      "Repasemos lo que han aprendido, o lo que fingieron aprender.",
+      "El procesamiento de información trabaja con entradas precisas y reglas previas, y es indiferente al significado.",
+      "El argumento constitutivo dice que la mente humana se realiza a través de la cultura: no basta con estudiar al individuo.",
+      "La psicología popular es la explicación que da una cultura de qué hace que las personas funcionen: creencias, deseos, intenciones.",
+      "La acción situada es la conducta con intención, dentro de un escenario cultural.",
+      "La biología es una restricción, no una causa, y la cultura inventa herramientas, como los chunks, para superar esos límites.",
+      "Y el constructivismo dice que el conocimiento es correcto o incorrecto según la perspectiva que se adopta, sin que eso signifique que todo valga.",
+      "Ahora, la hoja que tienen delante: únanlos como corresponde. Después hablaremos, frente a frente."
+    ],
+    "paper": {
+      "type": "match",
+      "title": "Hoja con dos columnas, hallada junto a la grabadora",
+      "instructions": "Une cada concepto con su definición, según el repaso del profesor.",
+      "pairs": [
+        {
+          "id": "m1",
+          "term": "Procesamiento de información",
+          "definition": "Opera con entradas precisas y reglas previas, y es indiferente al significado."
+        },
+        {
+          "id": "m2",
+          "term": "Argumento constitutivo",
+          "definition": "La mente humana se realiza a través de la cultura, así que no basta con estudiar al individuo."
+        },
+        {
+          "id": "m3",
+          "term": "Psicología popular",
+          "definition": "La explicación que da una cultura de qué hace que las personas funcionen: creencias, deseos e intenciones."
+        },
+        {
+          "id": "m4",
+          "term": "Acción situada",
+          "definition": "Conducta con intención, dentro de un escenario cultural y de estados intencionales compartidos."
+        },
+        {
+          "id": "m5",
+          "term": "Restricción biológica",
+          "definition": "Un límite natural, como el de la memoria inmediata, que la cultura puede superar con herramientas como los chunks."
+        },
+        {
+          "id": "m6",
+          "term": "Constructivismo",
+          "definition": "El conocimiento es correcto o incorrecto según la perspectiva adoptada, sin que por eso todo valga."
+        }
+      ]
+    },
+    "feedback": {
+      "correct": "Las dos columnas encajan. Desde un altavoz del escritorio, una voz dice: «Ahora hablemos, frente a frente».",
+      "incorrect": "La lámpara verde parpadea. «Otra vez, por favor. Despacio.»"
+    },
+    "source": { "section": "VI", "pages": "44-45" }
   }
 ]
