@@ -1,0 +1,109 @@
+/* Papel «unir conceptos» (MatchView) */
+
+.match {
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  color: #2b2b2b;
+  font-family: Georgia, "Times New Roman", serif;
+  background: #e9e2cf;
+  border: 1px solid #b9ae8e;
+  border-radius: 4px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+.match__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.match__instructions {
+  margin: 0 0 1rem;
+  font-style: italic;
+}
+
+.match__columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.match__column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.match__heading {
+  margin: 0;
+  color: #6b6246;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.match__item {
+  padding: 0.6rem 0.8rem;
+  color: inherit;
+  font: inherit;
+  font-size: 0.95rem;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid #8c8266;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.match__item:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.match__item.is-selected {
+  color: #f4f4f4;
+  background: #1a5fb4;
+  border-color: #0d3b78;
+}
+
+.match__item.is-matched {
+  color: #1b6b2f;
+  background: rgba(27, 107, 47, 0.12);
+  border-color: #1b6b2f;
+  cursor: default;
+}
+
+.match__item.is-matched::before {
+  content: attr(data-label) ". ";
+  font-weight: bold;
+}
+
+.match__item.is-wrong {
+  animation: match-shake 0.4s;
+  border-color: #b3322c;
+}
+
+.match__item:focus-visible {
+  outline: 2px solid #1a5fb4;
+  outline-offset: 2px;
+}
+
+.match__status {
+  min-height: 1.4em;
+  margin: 1rem 0 0;
+  color: #5a5236;
+  font-size: 0.9rem;
+}
+
+@keyframes match-shake {
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .match__item.is-wrong {
+    animation: none;
+  }
+}

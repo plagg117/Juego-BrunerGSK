@@ -8,8 +8,9 @@
     "pages": "19-27",
     "concept": "De la búsqueda de significado al procesamiento de información",
     "intro": "Despiertas con un dolor de cabeza sordo. Una sala blanca, mesas de laboratorio, un ordenador encendido y una puerta de hierro con un candado electrónico. Sobre la mesa hay una grabadora y un cassette con una etiqueta: «Escucha con atención».",
+    "companionIntro": "Tras un cristal, en la celda contigua, {companion} te hace señas con las dos manos.",
     "puzzles": ["cassette-01", "sorting-01"],
-    "rescues": "student-01"
+    "errorLimit": 3
   },
   {
     "id": "room-02",
@@ -20,8 +21,9 @@
     "pages": "27-31",
     "concept": "El papel constitutivo de la cultura",
     "intro": "La puerta de hierro cede y te lleva a una biblioteca silenciosa. Hay estantes hasta el techo, mesas de lectura cubiertas de polvo y, al fondo, una puerta con tres cerraduras de bronce. Sobre una mesa, otra grabadora. La etiqueta del cassette dice: «Las tres razones».",
+    "companionIntro": "Al fondo, entre las estanterías, {companion} te hace una seña con la mano. Sigue ahí.",
     "puzzles": ["cassette-02", "sorting-02"],
-    "rescues": "student-02"
+    "errorLimit": 3
   },
   {
     "id": "room-03",
@@ -32,8 +34,9 @@
     "pages": "31-35",
     "concept": "Psicología popular, decir y hacer, acción situada",
     "intro": "El pasillo termina en un aula idéntica a las de cualquier facultad: pupitres en fila, un pizarrón lleno de tiza y un proyector que parpadea. En el escritorio hay otra grabadora. En el pizarrón, una frase a medio borrar: «Lo que dicen no es lo que hacen». La etiqueta del cassette dice: «Decir y hacer».",
+    "companionIntro": "En la última fila de pupitres, {companion} escribe algo en un papel y lo pega contra el cristal de la puerta: «Cuidado con lo que dices».",
     "puzzles": ["cassette-03", "choices-01"],
-    "rescues": "student-03"
+    "errorLimit": 4
   },
   {
     "id": "room-04",
@@ -44,8 +47,9 @@
     "pages": "35-38",
     "concept": "La biología como restricción, no como causa",
     "intro": "Una escalera estrecha baja a un sótano sin ventanas. Hay una puerta metálica con un teclado numérico y, a un lado, una pantalla negra con un cursor que parpadea. En un estante, otra grabadora. La etiqueta del cassette dice: «Los límites».",
+    "companionIntro": "Por una rendija del suelo llega la voz de {companion}, contando en voz alta: uno, dos, tres... Está intentando no perder la cabeza.",
     "puzzles": ["cassette-04", "memory-01"],
-    "rescues": "student-04"
+    "errorLimit": 3
   },
   {
     "id": "room-05",
@@ -57,7 +61,7 @@
     "concept": "Relativismo, constructivismo y pragmatismo",
     "intro": "La puerta se abre a una sala llena de espejos. Cada uno te devuelve una versión distinta de ti, y en todos hay una frase escrita con vaho. Al fondo, sobre una banqueta, hay una grabadora. La etiqueta del cassette dice: «Perspectivas».",
     "puzzles": ["cassette-05", "choices-02"],
-    "rescues": null
+    "errorLimit": null
   },
   {
     "id": "room-final",
@@ -67,8 +71,8 @@
     "section": "VI",
     "pages": "44-45",
     "concept": "La psicología popular necesita ser explicada, no descalificada",
-    "intro": "Una escalera de piedra te lleva a un despacho con una lámpara verde sobre un escritorio de roble. En la pared hay un retrato sin terminar, de alguien que no logras reconocer. Sobre la mesa, una grabadora y una hoja con dos columnas de palabras sueltas. La etiqueta del cassette dice: «Repaso».",
+    "intro": "Una escalera de piedra te lleva a un despacho con una lámpara verde sobre un escritorio de roble. En la pared hay un retrato sin terminar, de alguien que no logras reconocer. Sobre la mesa, una grabadora y una hoja con dos columnas de palabras sueltas. Desde el altavoz del escritorio, una voz susurra tu nombre: «{player}». La etiqueta del cassette dice: «Repaso».",
     "puzzles": ["cassette-06", "choices-03"],
-    "rescues": "all"
+    "errorLimit": null
   }
 ]

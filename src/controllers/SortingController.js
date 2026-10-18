@@ -9,6 +9,7 @@ export class SortingController {
   #puzzle;
   #view;
   #onComplete = () => {};
+  #onMistake = () => {};
 
   /**
    * @param {import("../models/SortingPuzzle.js").SortingPuzzle} puzzle
@@ -58,6 +59,15 @@ export class SortingController {
     this.#onComplete = handler;
   }
 
+  /**
+   * Registra la función que se ejecuta cuando el jugador comprueba y no
+   * alcanza el mínimo de aciertos.
+   * @param {() => void} handler
+   */
+  onMistake(handler) {
+    this.#onMistake = handler;
+  }
+
   /** Vuelve a pintar la vista con el estado actual del modelo. */
   #repaint() {
     this.#view.refresh(this.#puzzle.items);
@@ -76,6 +86,8 @@ export class SortingController {
 
     if (result.passed) {
       this.#onComplete();
+    } else {
+      this.#onMistake();
     }
   }
 

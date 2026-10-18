@@ -1,0 +1,32 @@
+[
+  {
+    "id": "gabriela",
+    "name": "Gabriela",
+    "personality": "Líder analítica, mantiene la calma",
+    "posture": "Defiende la ciencia rigurosa y la medición"
+  },
+  {
+    "id": "felipe",
+    "name": "Felipe",
+    "personality": "Escéptico y sarcástico, el de tecnología",
+    "posture": "Ve la mente como computadora y desconfía de lo subjetivo"
+  },
+  {
+    "id": "karen",
+    "name": "Karen",
+    "personality": "Empática y creativa",
+    "posture": "Entiende a las personas por el significado y la cultura"
+  },
+  {
+    "id": "mariana",
+    "name": "Mariana",
+    "personality": "Nerviosa, reacciona rápido y se angustia fácil",
+    "posture": "Relativista: todo depende del punto de vista"
+  },
+  {
+    "id": "sofia",
+    "name": "Sofía",
+    "personality": "Callada y muy observadora",
+    "posture": "Se fija en lo que la gente hace más que en lo que dice"
+  }
+]

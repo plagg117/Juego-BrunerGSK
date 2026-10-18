@@ -1,0 +1,128 @@
+/* Panel de estado de la partida (HudView) */
+
+.hud {
+  max-width: 720px;
+  margin: 1rem auto 0;
+  padding: 0.9rem 1.1rem;
+  background: #16161a;
+  border: 1px solid #3a3a44;
+  border-radius: 10px;
+}
+
+.hud__room {
+  margin: 0;
+  color: #d9b45a;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hud__player {
+  margin: 0.25rem 0 0.6rem;
+  font-weight: bold;
+}
+
+.hud__companions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 0.6rem;
+  padding: 0;
+  list-style: none;
+}
+
+.hud__companion {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.85rem;
+  background: #22222a;
+  border: 1px solid #3a3a44;
+  border-radius: 999px;
+}
+
+.hud__companion .hud__status {
+  color: #a9a9b5;
+}
+
+.hud__companion.is-rescued {
+  border-color: #4cd277;
+}
+
+.hud__companion.is-rescued .hud__status {
+  color: #4cd277;
+}
+
+.hud__companion.is-lost {
+  border-color: #e0605a;
+  opacity: 0.7;
+}
+
+.hud__companion.is-lost .hud__name {
+  text-decoration: line-through;
+}
+
+.hud__companion.is-lost .hud__status {
+  color: #e0605a;
+}
+
+.hud__errors {
+  margin: 0;
+  color: #c4c4cf;
+  font-size: 0.9rem;
+}
+
+.hud__notice {
+  margin: 0.6rem 0 0;
+  padding: 0;
+}
+
+.hud__notice:empty {
+  display: none;
+}
+
+.hud__notice:not(:empty) {
+  padding: 0.5rem 0.8rem;
+  border-left: 3px solid #8a8a99;
+  background: #1d1d24;
+  border-radius: 4px;
+}
+
+.hud__notice.is-warning {
+  border-left-color: #d9b45a;
+}
+
+.hud__notice.is-bad {
+  border-left-color: #e0605a;
+}
+
+.hud__notice.is-good {
+  border-left-color: #4cd277;
+}
+
+.hud__actions {
+  margin-top: 0.6rem;
+}
+
+.hud__actions:empty {
+  display: none;
+}
+
+.hud__button {
+  padding: 0.5rem 1.1rem;
+  color: #16161a;
+  font: inherit;
+  background: #d9b45a;
+  border: 1px solid #d9b45a;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.hud__button:hover {
+  background: #e8c56f;
+}
+
+.hud__button:focus-visible {
+  outline: 2px solid #8ab4f8;
+  outline-offset: 2px;
+}

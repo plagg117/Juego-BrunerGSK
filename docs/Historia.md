@@ -77,13 +77,16 @@ Hay dos finales:
 - **Final A: todos salvos.** Ningún compañero se perdió y salen todos.
 - **Final B: algunos salvos.** Se perdió al menos un compañero y salen solo los que quedaron.
 
-**Propuesta (por ajustar al probar el juego):** cada sala tiene un límite de errores. Si el jugador lo supera, el profesor se lleva al compañero de esa sala. El final depende de cuántos compañeros llegan al despacho.
+**Regla decidida:** cada sala tiene un límite de errores. Si el jugador lo supera, el profesor se lleva al compañero de esa sala. El final depende de a cuántos compañeros se perdió. Los límites y lo que cuenta como error están en `docs/reglas-de-errores.md`.
+
+## Dónde están los textos en el código
+
+Los textos de inicio y de final no están en el código, sino en archivos de datos que se pueden editar sin tocar nada más. Ver `docs/textos-y-marcas.md`.
 
 ## Pendiente por definir
 
 - Motivo del profesor y la revelación en el despacho final.
 - Pistas sobre ese motivo repartidas en los cassettes y en cada sala.
-- Qué compañero se libera en cada sala, según el personaje que elija el jugador.
-- Reglas definitivas de errores y pérdida de compañeros.
+- Ajustar los límites de errores al probar el juego (ver `docs/reglas-de-errores.md`).
 - Texto de cada final.
 - Guiones de las salas 2 a 5 y del despacho final.

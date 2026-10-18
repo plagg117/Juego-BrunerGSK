@@ -127,6 +127,12 @@ export class CassetteView {
     this.showMessage("En pausa.");
   }
 
+  /** Detiene el audio sin perder la posición (por ejemplo, al cambiar de sala). */
+  stop() {
+    this.#audio.pause();
+    this.#setPlaying(false);
+  }
+
   /** Rebobina la cinta hasta el inicio. */
   rewind() {
     this.#audio.pause();

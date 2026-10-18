@@ -12,8 +12,12 @@
  * El reto final puede ser de cualquier tipo (clasificador, escenas con
  * opciones...). Solo necesita un controlador con `start()`, `show()`,
  * `hide()` y `onComplete()`.
- * También conecta las reglas entre actividades: una oración bloqueada en
- * el papel le quita una reproducción al cassette.
+ * También conecta las reglas entre actividades: un castigo del papel
+ * (por ejemplo, una oración bloqueada) le quita una reproducción al cassette.
+ *
+ * Informa de cada error del jugador con `onError`, venga del papel o del reto
+ * final. Qué consecuencias tiene un error (perder a un compañero, por ejemplo)
+ * lo decide quien escucha ese aviso, no la sala.
  */
 export class RoomController {
   #room;
@@ -23,14 +27,15 @@ export class RoomController {
   #challenge;
   #messages;
   #onComplete = () => {};
+  #onError = () => {};
 
   /**
    * @param {Object} config
    * @param {{id: string, name: string, intro?: string}} config.room - Datos de rooms.json.
    * @param {import("../views/RoomView.js").RoomView} config.view
    * @param {import("./CassetteController.js").CassetteController} config.cassetteController
-   * @param {import("./PaperController.js").PaperController|null} [config.paperController]
-   *   Controlador del papel. Si es null, la sala no tiene papel.
+   * @param {{start: Function, show: Function, hide: Function, onComplete: Function, onPenalty: Function}|null} [config.paperController]
+   *   Controlador del papel (de cualquier tipo). Si es null, la sala no tiene papel.
    * @param {{start: Function, show: Function, hide: Function, onComplete: Function}} config.challengeController
    *   Controlador del reto final (SortingController, ChoiceController...).
    * @param {Object} config.messages - Textos que se muestran al avanzar.
@@ -69,9 +74,13 @@ export class RoomController {
 
     this.#cassette.onFirstListenFinished(() => this.#handleCassetteListened());
 
-    this.#paper?.onLockedSentence(() => this.#cassette.penalize());
+    this.#paper?.onPenalty(() => {
+      this.#cassette.penalize();
+      this.#onError();
+    });
     this.#paper?.onComplete(() => this.#showChallenge());
 
+    this.#challenge.onMistake?.(() => this.#onError());
     this.#challenge.onComplete(() => {
       this.#view.showCompletion(this.#messages.roomSolved);
       this.#onComplete(this.#room);
@@ -84,6 +93,21 @@ export class RoomController {
    */
   onComplete(handler) {
     this.#onComplete = handler;
+  }
+
+  /**
+   * Registra la función que se ejecuta con cada error del jugador en la sala.
+   * @param {() => void} handler
+   */
+  onError(handler) {
+    this.#onError = handler;
+  }
+
+  /** Libera los recursos de la sala (audio y cuentas atrás) al cambiar de sala. */
+  dispose() {
+    this.#cassette.dispose?.();
+    this.#paper?.dispose?.();
+    this.#challenge.dispose?.();
   }
 
   /** Qué ocurre al escuchar el cassette completo por primera vez. */

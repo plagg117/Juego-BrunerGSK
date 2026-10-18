@@ -9,7 +9,7 @@
 2. **Cassette:** encuentra la grabadora y escucha el cassette (máximo 3 reproducciones).
 3. **Papel:** completa 4 oraciones con un banco de palabras. Si acierta todas, el candado emite una luz verde.
 4. **Clasificador:** en el ordenador, ordena 8 fichas en dos cajones (significado / procesamiento). Necesita al menos 6 aciertos.
-5. **Salida:** la puerta se abre y se libera a un compañero (`student-01`, nombre por definir).
+5. **Salida:** la puerta se abre y se libera al compañero que `GameState` asignó a esta sala, salvo que ya se haya perdido por superar el límite de errores (3).
 
 ## Archivos de datos
 

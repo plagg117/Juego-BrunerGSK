@@ -93,36 +93,45 @@
       "Veamos ahora si saben interpretar una escena. Les advierto: observo cada respuesta."
     ],
     "paper": {
-      "title": "Apunte de clase, escrito con tiza sobre un papel doblado",
-      "instructions": "Completa cada oración con la palabra correcta, según lo que dijo la grabación.",
-      "sentences": [
+      "type": "errorHunt",
+      "title": "Apuntes de un compañero, con errores",
+      "instructions": "Estos apuntes resumen la grabación, pero algunas afirmaciones son falsas. Marca las que contradicen lo que se dijo.",
+      "statements": [
         {
-          "id": "p3-s1",
-          "text": "Decir y hacer constituyen una unidad funcionalmente ___.",
-          "answer": "inseparable",
-          "acceptedAnswers": ["inseparable"],
-          "distractors": ["contradictoria", "opcional"]
+          "id": "e3-1",
+          "text": "La psicología científica confía plenamente en lo que la gente dice sobre sí misma.",
+          "isFalse": true,
+          "explanation": "La grabación dice lo contrario: la psicología científica desconfía de los estados subjetivos."
         },
         {
-          "id": "p3-s2",
-          "text": "Una psicología sensible a la cultura debe basarse también en lo que la gente ___ que hace.",
-          "answer": "dice",
-          "acceptedAnswers": ["dice"],
-          "distractors": ["oculta", "ignora"]
+          "id": "e3-2",
+          "text": "Según Bruner, decir y hacer constituyen una unidad inseparable.",
+          "isFalse": false,
+          "explanation": "Es la idea central de la grabación."
         },
         {
-          "id": "p3-s3",
-          "text": "El significado de una acción solo puede interpretarse en función de lo que los actores dicen que ___.",
-          "answer": "pretenden",
-          "acceptedAnswers": ["pretenden"],
-          "distractors": ["recuerdan", "temen"]
+          "id": "e3-3",
+          "text": "La psicología cultural se ocupa de la conducta pura, sin considerar la intención.",
+          "isFalse": true,
+          "explanation": "Se ocupa de la acción: la conducta con intención, situada en un escenario cultural."
         },
         {
-          "id": "p3-s4",
-          "text": "La psicología cultural no se ocupa de la conducta, sino de la ___.",
-          "answer": "acción",
-          "acceptedAnswers": ["acción"],
-          "distractors": ["emoción", "memoria"]
+          "id": "e3-4",
+          "text": "El significado de una acción se interpreta según lo que sus actores dicen que pretenden.",
+          "isFalse": false,
+          "explanation": "Así lo explica la grabación, con el ejemplo de alguien que dice «lo siento» al empujar sin querer."
+        },
+        {
+          "id": "e3-5",
+          "text": "Una psicología sensible a la cultura debe basarse solo en lo que la gente hace.",
+          "isFalse": true,
+          "explanation": "Debe basarse también en lo que la gente dice que hace y en lo que dice que la llevó a hacerlo."
+        },
+        {
+          "id": "e3-6",
+          "text": "Decir «lo siento» al empujar sin querer muestra que lo que se dice da sentido a lo que se hace.",
+          "isFalse": false,
+          "explanation": "Es el ejemplo que usa la grabación."
         }
       ]
     },

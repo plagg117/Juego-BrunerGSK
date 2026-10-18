@@ -1,173 +1,63 @@
 /**
  * Punto de entrada del juego.
- * Carga los datos, crea los modelos, las vistas y los controladores
- * de una sala y la pone en marcha.
+ * Carga los datos, crea el estado de la partida y el panel de estado, y
+ * pone en marcha el controlador del juego.
+ *
+ * Para probar, la dirección admite dos parámetros opcionales:
+ *   ?room=room-03        empieza en esa sala (las anteriores cuentan como completadas)
+ *   ?player=felipe       juega con ese personaje (si no, se elige uno al azar)
  */
 
-console.log("Juego cargado correctamente");
+console.log("Juego cargado correctamente.");
 
-import { loadJson } from "./utils/loadJson.js";
-
-import { Cassette } from "./models/Cassette.js";
-import { ClozeSheet } from "./models/ClozeSheet.js";
-import { SortingPuzzle } from "./models/SortingPuzzle.js";
-import { ChoicePuzzle } from "./models/ChoicePuzzle.js";
-
-import { RoomView } from "./views/RoomView.js";
-import { CassetteView } from "./views/CassetteView.js";
-import { PaperView } from "./views/PaperView.js";
-import { SortingView } from "./views/SortingView.js";
-import { ChoiceView } from "./views/ChoiceView.js";
-
-import { RoomController } from "./controllers/RoomController.js";
-import { CassetteController } from "./controllers/CassetteController.js";
-import { PaperController } from "./controllers/PaperController.js";
-import { SortingController } from "./controllers/SortingController.js";
-import { ChoiceController } from "./controllers/ChoiceController.js";
-
-/** Sala que se carga si la dirección no indica otra. */
-const DEFAULT_ROOM_ID = "room-01";
-
-/**
- * Tipos de reto final que puede tener una sala. Cada uno indica en qué
- * archivo están sus datos y cómo se arma su controlador.
- */
-const CHALLENGE_TYPES = [
-  {
-    file: "src/data/sorting.json",
-    create: (data) =>
-      new SortingController(new SortingPuzzle(data), new SortingView(select("#sorting-container"))),
-  },
-  {
-    file: "src/data/choices.json",
-    create: (data) =>
-      new ChoiceController(new ChoicePuzzle(data), new ChoiceView(select("#choice-container"))),
-  },
-];
-
-/** Tipo de papel que se usa si los datos no indican otro. */
-const DEFAULT_PAPER_TYPE = "cloze";
-
-/**
- * Tipos de papel que puede tener un cassette. Cada uno indica cómo se arma
- * su controlador. Por implementar: "errorHunt" (encontrar el error) y
- * "match" (unir conceptos con definiciones).
- */
-const PAPER_TYPES = {
-  cloze: (paper) =>
-    new PaperController(new ClozeSheet(paper), new PaperView(select("#paper-container"))),
-};
-
-/**
- * Busca un elemento del HTML o lanza un error si no existe.
- * @param {string} selector
- * @returns {HTMLElement}
- */
-function select(selector) {
-  const element = document.querySelector(selector);
-  if (!element) {
-    throw new Error(`No se encontró el elemento "${selector}" en el HTML.`);
-  }
-  return element;
-}
-
-/**
- * Busca el cassette que pertenece a una sala.
- * @param {{id: string}[]} cassettes
- * @param {{id: string, puzzles: string[]}} room
- * @returns {Object}
- */
-function findCassette(cassettes, room) {
-  const found = cassettes.find((item) => room.puzzles.includes(item.id));
-  if (!found) {
-    throw new Error(`La sala "${room.id}" no tiene cassette.`);
-  }
-  return found;
-}
-
-/**
- * Crea el controlador del papel, si el cassette lo tiene.
- * No todas las salas incluyen papel.
- * @param {{paper?: Object}} cassetteData
- * @returns {PaperController|null}
- */
-function createPaperController(cassetteData) {
-  const { paper } = cassetteData;
-  if (!paper) {
-    return null;
-  }
-
-  const type = paper.type ?? DEFAULT_PAPER_TYPE;
-  const create = PAPER_TYPES[type];
-  if (!create) {
-    throw new Error(
-      `El papel de "${cassetteData.id}" es del tipo "${type}", que todavía no está implementado.`
-    );
-  }
-  return create(paper);
-}
-
-/**
- * Busca el reto final de una sala entre todos los tipos de reto.
- * @param {Object[][]} challengeLists - Una lista de datos por cada tipo de CHALLENGE_TYPES.
- * @param {{id: string, puzzles: string[]}} room
- * @returns {{data: Object, type: {create: Function}}}
- */
-function findChallenge(challengeLists, room) {
-  for (const [index, list] of challengeLists.entries()) {
-    const data = list.find((item) => room.puzzles.includes(item.id));
-    if (data) {
-      return { data, type: CHALLENGE_TYPES[index] };
-    }
-  }
-  throw new Error(`La sala "${room.id}" no tiene reto final.`);
-}
-
-/**
- * Sala que se debe cargar. Mientras no exista el avance entre salas,
- * se puede elegir con la dirección: index.html?room=room-02
- * @returns {string}
- */
-function getRoomId() {
-  return new URLSearchParams(window.location.search).get("room") ?? DEFAULT_ROOM_ID;
-}
+import { GameState } from "./models/GameState.js";
+import { HudView } from "./views/HudView.js";
+import { EndingView } from "./views/EndingView.js";
+import { StartView } from "./views/StartView.js";
+import { GameController } from "./controllers/GameController.js";
+import { StartController } from "./controllers/StartController.js";
+import {
+  loadGameData,
+  createRoomController,
+  clearRoomContainers,
+  select,
+} from "./factories/roomFactory.js";
 
 async function startGame() {
-  const [rooms, cassettes, ...challengeLists] = await Promise.all([
-    loadJson("src/data/rooms.json"),
-    loadJson("src/data/cassettes.json"),
-    ...CHALLENGE_TYPES.map((type) => loadJson(type.file)),
-  ]);
+  const data = await loadGameData();
+  const params = new URLSearchParams(window.location.search);
+  const playerId = params.get("player") ?? undefined;
+  const startRoomId = params.get("room") ?? undefined;
 
-  const roomId = getRoomId();
-  const room = rooms.find((item) => item.id === roomId);
-  if (!room) {
-    throw new Error(`No existe la sala "${roomId}" en rooms.json.`);
+  const hud = new HudView(select("#hud-container"));
+  const game = new GameController({
+    state: new GameState({ characters: data.characters, rooms: data.rooms }),
+    hudView: hud,
+    endingView: new EndingView(select("#ending-container")),
+    story: data.story,
+    createRoom: (room) => createRoomController(room, data),
+    clearContainers: clearRoomContainers,
+  });
+
+  // Modo de prueba: se salta el prólogo y la elección de personaje.
+  if (playerId !== undefined || startRoomId !== undefined) {
+    game.start({ playerId, startRoomId });
+    return;
   }
 
-  const cassetteData = findCassette(cassettes, room);
-  const challenge = findChallenge(challengeLists, room);
-
-  const roomController = new RoomController({
-    room,
-    view: new RoomView(select("#room-container")),
-    cassetteController: new CassetteController(
-      Cassette.fromData(cassetteData),
-      new CassetteView(select("#cassette-container"))
-    ),
-    paperController: createPaperController(cassetteData),
-    challengeController: challenge.type.create(challenge.data),
-    messages: {
-      cassetteSolved: cassetteData.feedback.correct,
-      roomSolved: challenge.data.feedback.correct,
-    },
+  const start = new StartController({
+    view: new StartView(select("#start-container")),
+    story: data.story,
+    characters: data.characters,
+  });
+  start.onChoose((chosenId) => game.start({ playerId: chosenId }));
+  game.onRestart(() => {
+    hud.setVisible(false);
+    start.show({ skipPrologue: true });
   });
 
-  roomController.onComplete((completedRoom) => {
-    console.log(`Sala completada: ${completedRoom.name}`);
-  });
-
-  roomController.start();
+  hud.setVisible(false);
+  start.show();
 }
 
 startGame().catch((error) => {

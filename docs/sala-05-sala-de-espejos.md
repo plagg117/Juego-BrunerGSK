@@ -57,5 +57,5 @@ Cada espejo tiene 3 opciones y una explicación breve que se muestra tras respon
 ## Notas
 
 - Los textos del cassette y de los espejos son paráfrasis del capítulo, escritas para el juego.
-- El campo `rescues` queda en `null` a propósito: se había pensado que esta sala sea el reto personal del jugador (pendiente de definir cómo se resuelve con el personaje elegido al azar).
+- Esta sala **no tiene compañero en juego** (`errorLimit: null`): los errores se cuentan, pero no se pierde a nadie. Queda pendiente decidir si será el reto personal del jugador (ver `docs/reglas-de-errores.md`).
 - La sala usa el mismo motor que la Sala 3. Si quieres una mecánica más distinta, una alternativa es **armar la pregunta pragmática** ordenando fragmentos de frase; implicaría construir otra mecánica nueva.

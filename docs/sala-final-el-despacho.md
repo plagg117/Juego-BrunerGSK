@@ -47,7 +47,7 @@ El jugador une cada concepto con su definición. Cada concepto corresponde a una
 | Restricción biológica | Un límite natural, como el de la memoria inmediata, que la cultura puede superar con herramientas como los chunks. | 4 |
 | Constructivismo | El conocimiento es correcto o incorrecto según la perspectiva adoptada, sin que por eso todo valga. | 5 |
 
-Este papel necesita una mecánica nueva (ver `docs/papeles-nuevos.md`).
+Este papel usa la mecánica de unir, ya implementada (ver `docs/papeles-nuevos.md`). Cada 3 errores seguidos, el cassette pierde una reproducción.
 
 ## El debate (frente a frente)
 
@@ -66,14 +66,14 @@ Usa el mismo motor de escenas con opciones que las salas 3 y 5, así que no nece
 - **Final A: todos salvos.** Ningún compañero se perdió durante el juego.
 - **Final B: algunos salvos.** Se perdió al menos un compañero.
 
-Ambos finales dependen de la regla de compañeros perdidos, que todavía no está definida. Los textos de los finales tampoco están escritos.
+Ambos finales dependen de la regla de compañeros perdidos (ver `docs/reglas-de-errores.md`). Los textos de los finales todavía no están escritos.
 
 ## Pendiente de esta sala
 
 - **El motivo del profesor.** La historia lo deja en misterio hasta el final, pero hay que decidir cuál es y dónde se revela (después del debate, probablemente).
 - **Dónde se muestra el profesor.** En los datos, su voz sale de un altavoz. Hay que decidir si aparece en persona en el desenlace.
-- **Mecánica del papel de unir** (nueva) y textos de los finales.
-- **Compañeros que se liberan:** el campo `rescues` está en `"all"` (se liberan todos los que sigan en pie).
+- **Textos de los finales** y la pantalla de cierre.
+- **Compañeros:** esta sala no pone a nadie en juego (`errorLimit: null`). Al superar el debate se abre la puerta y el final (A o B) depende de a cuántos compañeros se perdió antes (ver `docs/reglas-de-errores.md`).
 
 ## Notas
 

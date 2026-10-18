@@ -5,10 +5,10 @@ El papel aparece solo en algunas salas (Sala 1, Sala 3 y despacho final) y cada 
 | Sala | Tipo de papel | Campo `type` | Estado |
 |------|---------------|--------------|--------|
 | 1. El laboratorio | Completar oraciones | `cloze` | Hecho y jugable |
-| 3. El aula | Encontrar el error | `errorHunt` | Datos listos (abajo); falta el código |
-| Despacho final | Unir conceptos y definiciones | `match` | Datos listos (en `cassette-06`); falta el código |
+| 3. El aula | Encontrar el error | `errorHunt` | Hecho y jugable |
+| Despacho final | Unir conceptos y definiciones | `match` | Hecho y jugable |
 
-Mientras no esté el código nuevo, la **Sala 3 sigue usando el papel de completar** (el que ya funciona). Cuando se construya el tipo `errorHunt`, se sustituye el bloque `paper` del `cassette-03` por el de este documento.
+Los tres tipos ya están implementados. Cada uno tiene su modelo, su vista y su controlador, y se registra por nombre en `PAPER_TYPES` de `main.js`.
 
 Si el campo `type` no aparece en un papel, se considera `cloze`. Si el tipo no está implementado, el juego muestra un mensaje claro en vez de fallar en silencio.
 
@@ -18,7 +18,7 @@ Los tres papeles se comportan igual hacia el exterior, para que `RoomController`
 
 - `start()`, `show()` y `hide()`
 - `onComplete(handler)`: se completó el papel
-- Un aviso de **castigo** cuando el jugador falla de más (hoy se llama `onLockedSentence`; al sumar los nuevos tipos conviene renombrarlo `onPenalty`). Quien lo recibe es `RoomController`, que le quita una reproducción al cassette.
+- `onPenalty(handler)`: aviso de **castigo** cuando el jugador falla de más. Quien lo recibe es `RoomController`, que le quita una reproducción al cassette.
 
 ## 1. Completar oraciones (`cloze`)
 
@@ -34,7 +34,7 @@ Ya implementado. Una oración con un espacio en blanco y un banco de palabras; d
 - Si no, se indica cuántas afirmaciones están bien clasificadas (sin decir cuáles) y se pierde una reproducción del cassette.
 - Se puede reintentar.
 
-**Datos para `cassette-03`** (sustituirían al bloque `paper` actual cuando exista el código):
+**Datos de `cassette-03`** (campo `paper`):
 
 ```json
 "paper": {
@@ -82,7 +82,7 @@ Ya implementado. Una oración con un espacio en blanco y un banco de palabras; d
 }
 ```
 
-**Código nuevo necesario:** `models/ErrorHuntSheet.js`, `views/ErrorHuntView.js` y `controllers/ErrorHuntController.js`, más una entrada en `PAPER_TYPES` de `main.js`.
+**Código:** `models/ErrorHuntSheet.js`, `views/ErrorHuntView.js` y `controllers/ErrorHuntController.js`, registrados en `PAPER_TYPES` de `main.js`. Los estilos están en `assets/css/errorhunt.css`.
 
 ## 3. Unir conceptos (`match`) — despacho final
 
@@ -96,9 +96,6 @@ Ya implementado. Una oración con un espacio en blanco y un banco de palabras; d
 
 **Datos:** ya están en `cassette-06` (campo `paper`, con `type: "match"` y la lista `pairs`).
 
-**Código nuevo necesario:** `models/MatchSheet.js`, `views/MatchView.js` y `controllers/MatchController.js`, más una entrada en `PAPER_TYPES` de `main.js`.
+**Código:** `models/MatchSheet.js`, `views/MatchView.js` y `controllers/MatchController.js`, registrados en `PAPER_TYPES` de `main.js`. Los estilos están en `assets/css/match.css`.
 
-## Orden recomendado para construirlos
-
-1. `errorHunt` (Sala 3): es el más sencillo y completa una sala que ya es jugable.
-2. `match` (despacho final): lo necesita el final del juego.
+El jugador puede elegir primero el concepto o primero la definición. Los ids de las definiciones son opacos (`d1`, `d2`...) para que no se puedan deducir las respuestas inspeccionando la página.

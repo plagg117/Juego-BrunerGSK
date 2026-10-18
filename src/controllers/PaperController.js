@@ -5,13 +5,14 @@ const RESTART_DELAY_MS = 2500;
  * Controlador del papel con oraciones por completar.
  *
  * Conecta el modelo ClozeSheet con PaperView. No conoce la grabadora:
- * cuando una oración se bloquea solo avisa con `onLockedSentence`, y quien
- * coordina la sala decide qué castigo aplicar.
+ * cuando una oración se bloquea solo avisa con `onPenalty`, y quien
+ * coordina la sala decide qué castigo aplicar. Cumple la misma interfaz que
+ * los demás tipos de papel (`start`, `show`, `hide`, `onComplete`, `onPenalty`).
  */
 export class PaperController {
   #sheet;
   #view;
-  #onLockedSentence = () => {};
+  #onPenalty = () => {};
   #onComplete = () => {};
 
   /**
@@ -40,12 +41,12 @@ export class PaperController {
   }
 
   /**
-   * Registra la función que se ejecuta cuando una oración se bloquea
-   * por demasiados errores.
+   * Registra la función que se ejecuta cuando el jugador merece un castigo
+   * (una oración se bloqueó por demasiados errores).
    * @param {() => void} handler
    */
-  onLockedSentence(handler) {
-    this.#onLockedSentence = handler;
+  onPenalty(handler) {
+    this.#onPenalty = handler;
   }
 
   /**
@@ -80,7 +81,7 @@ export class PaperController {
     });
 
     if (result.locked) {
-      this.#onLockedSentence();
+      this.#onPenalty();
     }
 
     if (this.#sheet.isComplete) {

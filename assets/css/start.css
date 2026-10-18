@@ -1,0 +1,88 @@
+/* Pantalla de inicio (StartView): prólogo y elección de personaje */
+
+.start {
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 1.75rem;
+  background: #131318;
+  border: 1px solid #3a3a44;
+  border-radius: 12px;
+}
+
+.start__title {
+  margin: 0 0 1rem;
+  font-size: 1.6rem;
+}
+
+.start__story {
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 3px solid #d9b45a;
+}
+
+.start__paragraph {
+  margin: 0 0 0.9rem;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.start__text {
+  margin: 0 0 1rem;
+  color: #c4c4cf;
+}
+
+.start__characters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.start__character {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.8rem 1rem;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  background: #1d1d24;
+  border: 1px solid #3a3a44;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.start__character:hover {
+  background: #26262f;
+  border-color: #d9b45a;
+}
+
+.start__character-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.start__character-trait {
+  color: #a9a9b5;
+  font-size: 0.9rem;
+}
+
+.start__button {
+  padding: 0.55rem 1.25rem;
+  color: #16161a;
+  font: inherit;
+  background: #d9b45a;
+  border: 1px solid #d9b45a;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.start__button:hover {
+  background: #e8c56f;
+}
+
+.start__character:focus-visible,
+.start__button:focus-visible {
+  outline: 2px solid #8ab4f8;
+  outline-offset: 2px;
+}

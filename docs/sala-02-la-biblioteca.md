@@ -8,7 +8,7 @@
 1. **Apertura:** el jugador entra a una biblioteca silenciosa (texto en `rooms.json`, campo `intro`).
 2. **Cassette:** escucha la grabación 2, «Las tres razones» (máximo 3 reproducciones).
 3. **Las tres cerraduras:** al terminar de escuchar, se enciende una luz sobre la puerta del fondo y aparece el clasificador. Hay que clasificar 9 fichas en tres cerraduras, una por cada razón. Se necesitan al menos 7 aciertos.
-4. **Salida:** la puerta se abre y se libera a un compañero (`student-02`, por definir).
+4. **Salida:** la puerta se abre y se libera al compañero asignado a esta sala, salvo que ya se haya perdido por superar el límite de errores (3).
 
 Esta sala **no tiene papel**: el cassette lleva directamente al reto. El papel aparece solo en algunas salas para no repetirse (ver `docs/historia.md`). Las oraciones que tenía están guardadas en `docs/papel-reservado.md`.
 
@@ -21,7 +21,7 @@ Esta sala **no necesita código nuevo**: reutiliza el clasificador de la Sala 1,
 | `src/data/rooms.json` | Sala `room-02`: narración de entrada y lista de actividades |
 | `src/data/cassettes.json` | `cassette-02`: transcripción (sin papel) |
 | `src/data/sorting.json` | `sorting-02`: las tres cerraduras |
-| `assets/audio/cassette-02.mp3` | Audio |
+| `assets/audio/cassette-02.mp3` | Audio por grabar (ver guion) |
 
 ## Cassette 02: guion de la grabación
 
@@ -75,4 +75,4 @@ Propuesta inicial, por ajustar al probar el juego:
 
 - Los textos del cassette y las fichas son paráfrasis del capítulo, escritas para el juego.
 - La postura del profesor frente a la psicología popular (la considera poco rigurosa) prepara la confrontación final de la sala VI, donde el capítulo defiende que debe ser explicada y no descalificada.
-- El nombre del compañero que se libera depende del personaje elegido por el jugador (pendiente).
+- El compañero de esta sala lo asigna `GameState` al empezar la partida, según el personaje elegido por el jugador (ver `docs/reglas-de-errores.md`).

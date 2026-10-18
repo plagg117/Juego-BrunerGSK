@@ -41,6 +41,11 @@ export class CassetteController {
     this.#onFirstListenFinished = handler;
   }
 
+  /** Libera los recursos de la grabadora: detiene el audio. */
+  dispose() {
+    this.#view.stop();
+  }
+
   /** Quita una reproducción como castigo por un error del jugador. */
   penalize() {
     this.#cassette.losePlay();

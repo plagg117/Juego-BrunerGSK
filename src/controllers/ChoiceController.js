@@ -12,6 +12,7 @@ export class ChoiceController {
   #puzzle;
   #view;
   #onComplete = () => {};
+  #onMistake = () => {};
 
   /**
    * @param {import("../models/ChoicePuzzle.js").ChoicePuzzle} puzzle
@@ -53,6 +54,14 @@ export class ChoiceController {
     this.#onComplete = handler;
   }
 
+  /**
+   * Registra la función que se ejecuta cuando el jugador elige una opción incorrecta.
+   * @param {() => void} handler
+   */
+  onMistake(handler) {
+    this.#onMistake = handler;
+  }
+
   /** @param {string} optionId */
   #handleAnswer(optionId) {
     if (this.#puzzle.isCurrentAnswered) {
@@ -63,6 +72,9 @@ export class ChoiceController {
       { selectedId: optionId, ...result },
       { isLast: this.#puzzle.isFinished }
     );
+    if (!result.correct) {
+      this.#onMistake();
+    }
   }
 
   #handleNext() {

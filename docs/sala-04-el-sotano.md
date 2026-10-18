@@ -7,8 +7,8 @@
 
 1. **Apertura:** una escalera baja a un sótano sin ventanas, con una puerta metálica con teclado numérico (texto en `rooms.json`, campo `intro`).
 2. **Cassette:** escucha la grabación 4, «Los límites» (máximo 3 reproducciones). Esta sala **no tiene papel**.
-3. **Prueba de memoria:** al terminar de escuchar, la pantalla muestra códigos numéricos que hay que recordar y escribir en el teclado (tres pruebas).
-4. **Salida:** la puerta metálica se abre y se libera a un compañero (`student-04`, por definir).
+3. **Prueba de memoria:** al terminar de escuchar, la pantalla se enciende y muestra códigos numéricos que hay que recordar y escribir en el teclado (tres pruebas). La primera prueba empieza en ese momento, no antes.
+4. **Salida:** la puerta metálica se abre y se libera al compañero asignado a esta sala, salvo que ya se haya perdido por superar el límite de errores (3).
 
 ## Por qué el cassette importa aquí
 
@@ -53,17 +53,24 @@ Reglas (propuesta inicial, por ajustar al probar el juego):
 - Tras cada prueba se muestra una explicación breve con la página del texto (campo `explanation`).
 - La sala se completa al superar la prueba 3.
 
-## Código nuevo necesario
+## Implementación
 
-Esta sala necesita una mecánica propia:
+Esta sala usa una mecánica propia, ya implementada:
 
 | Capa | Archivo | Responsabilidad |
 |------|---------|-----------------|
-| Modelo | `models/MemoryPuzzle.js` | Genera los códigos, valida la respuesta y lleva el avance entre pruebas |
-| Vista | `views/MemoryView.js` | Muestra el código con cuenta atrás, lo oculta y ofrece el teclado |
-| Controlador | `controllers/MemoryController.js` | Conecta ambos y avisa al superar la prueba final |
+| Modelo | `models/MemoryPuzzle.js` | Genera los códigos al azar, valida la respuesta y lleva el avance entre pruebas |
+| Vista | `views/MemoryView.js` | Muestra el código con cuenta atrás, lo oculta y ofrece el campo para escribirlo |
+| Controlador | `controllers/MemoryController.js` | Conecta ambos, empieza la primera prueba al mostrarse el reto y avisa al superar la última |
 
-Además, hay que añadir el tipo de reto a la lista `CHALLENGE_TYPES` de `main.js`.
+Los estilos están en `assets/css/memory.css`, y el tipo de reto está registrado en `CHALLENGE_TYPES` de `main.js`. El contenedor en el HTML es `memory-container`.
+
+Detalles del comportamiento:
+
+- El tiempo de exposición lo controla la vista; el modelo no mide tiempo.
+- Al responder, se revela el código correcto para que el jugador lo compare con el suyo.
+- Se ignoran los espacios y cualquier carácter que no sea un dígito en la respuesta.
+- Una respuesta vacía no cuenta como intento.
 
 ## Pistas progresivas (andamiaje)
 
@@ -76,4 +83,4 @@ Además, hay que añadir el tipo de reto a la lista `CHALLENGE_TYPES` de `main.j
 ## Notas
 
 - Los textos del cassette y de las pruebas son paráfrasis del capítulo, escritas para el juego.
-- Estado: datos y guion listos; falta construir la mecánica de memoria.
+- Estado: jugable con `index.html?room=room-04` (con un MP3 de prueba en `assets/audio/cassette-04.mp3`).

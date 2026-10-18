@@ -1,0 +1,36 @@
+{
+  "title": "El Seminario de Bruner",
+  "prologue": [
+    "Hace una semana llegó la invitación: un seminario especial de Psicología cognitiva, cupos limitados, a cargo del Dr. Jhon Alexander. Solo cinco estudiantes fueron elegidos.",
+    "El bus los dejó frente a un edificio solitario, en medio del campo. Sin señal en los celulares. El doctor los recibió con una sonrisa y una cena larga, y habló de la mente como si la conociera por dentro.",
+    "Esa noche, al terminar el último café, todo se volvió borroso.",
+    "Ahora despiertas en una sala blanca. Las puertas están cerradas. Sobre la mesa hay una grabadora y un cassette con una etiqueta: «Escucha con atención»."
+  ],
+  "continueLabel": "Continuar",
+  "restartLabel": "Jugar de nuevo",
+  "characterSelection": {
+    "title": "¿Quién eres?",
+    "text": "Elige a uno de los cinco estudiantes. Los otros cuatro serán tus compañeros.",
+    "randomLabel": "Elegir al azar"
+  },
+  "endings": {
+    "A": {
+      "title": "Final A: todos salvos",
+      "paragraphs": [
+        "La última puerta se abre y el aire frío de la madrugada entra en el despacho.",
+        "Salen los cinco, juntos. Compañeros que salieron contigo: {survivors}.",
+        "Atrás queda el edificio en medio del campo. En el despacho, la grabadora sigue girando sola, y nadie ha vuelto a ver al Dr. Jhon Alexander.",
+        "En tu celular, por fin, vuelve una barra de señal."
+      ]
+    },
+    "B": {
+      "title": "Final B: algunos salvos",
+      "paragraphs": [
+        "La última puerta se abre, pero el edificio ya no está tan lleno como cuando empezaron.",
+        "Compañeros que salieron contigo: {survivors}. Compañeros que se perdieron: {lost}.",
+        "Nadie sabe explicar dónde están. En el despacho, la grabadora sigue girando sola, y del Dr. Jhon Alexander no queda rastro.",
+        "En tu celular, por fin, vuelve una barra de señal. Para algunos, demasiado tarde."
+      ]
+    }
+  }
+}
