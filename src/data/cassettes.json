@@ -18,6 +18,11 @@
     "paper": {
       "title": "Papel arrugado hallado junto a la grabadora",
       "instructions": "Completa cada oración con la palabra correcta, según lo que dijo la grabación.",
+      "hints": [
+        "Piensa en lo que decía la grabación al principio: la meta original de la Revolución Cognitiva.",
+        "Las respuestas son palabras clave de la grabación: mente, significado, procesamiento y ordenador. Falta decidir cuál va en cada oración.",
+        "Empieza por la oración sobre la meta original: se quería recuperar la mente y poner el significado en el centro de la psicología."
+      ],
       "sentences": [
         {
           "id": "p1-s1",
@@ -96,6 +101,11 @@
       "type": "errorHunt",
       "title": "Apuntes de un compañero, con errores",
       "instructions": "Estos apuntes resumen la grabación, pero algunas afirmaciones son falsas. Marca las que contradicen lo que se dijo.",
+      "hints": [
+        "Fíjate en cuándo el profesor expone la postura que critica Bruner y cuándo la que defiende.",
+        "Hay exactamente tres afirmaciones falsas.",
+        "Desconfía de las que dicen «confía plenamente», «conducta pura, sin considerar la intención» y «solo en lo que la gente hace»."
+      ],
       "statements": [
         {
           "id": "e3-1",
@@ -206,6 +216,11 @@
       "type": "match",
       "title": "Hoja con dos columnas, hallada junto a la grabadora",
       "instructions": "Une cada concepto con su definición, según el repaso del profesor.",
+      "hints": [
+        "Cada concepto corresponde a una sala del juego: acuérdate de qué aprendiste en cada una.",
+        "Procesamiento de información y Argumento constitutivo son de las salas 1 y 2; Acción situada, de la 3.",
+        "Restricción biológica es la de los chunks (sala 4) y Constructivismo la de los espejos (sala 5)."
+      ],
       "pairs": [
         {
           "id": "m1",

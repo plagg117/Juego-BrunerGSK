@@ -1,3 +1,8 @@
+import { MAX_HINT_LEVEL } from "../utils/hints.js";
+
+/** Pista que se da mientras el jugador todavía no ha escuchado el cassette. */
+const CASSETTE_STAGE_HINT = "Escucha la grabación hasta el final: ahí está lo que necesitas para seguir.";
+
 /**
  * Controlador de una sala.
  *
@@ -15,6 +20,10 @@
  * También conecta las reglas entre actividades: un castigo del papel
  * (por ejemplo, una oración bloqueada) le quita una reproducción al cassette.
  *
+ * Atiende las pistas con `requestHint()`. El nivel de pista sube con cada
+ * petición dentro de una etapa (cassette, papel o reto final) y se reinicia al
+ * cambiar de etapa.
+ *
  * Informa de cada error del jugador con `onError`, venga del papel o del reto
  * final. Qué consecuencias tiene un error (perder a un compañero, por ejemplo)
  * lo decide quien escucha ese aviso, no la sala.
@@ -28,6 +37,8 @@ export class RoomController {
   #messages;
   #onComplete = () => {};
   #onError = () => {};
+  #stage = "cassette";
+  #hintLevel = 0;
 
   /**
    * @param {Object} config
@@ -110,9 +121,42 @@ export class RoomController {
     this.#challenge.dispose?.();
   }
 
+  /**
+   * Pide una pista para lo que el jugador tiene delante ahora. El nivel sube
+   * con cada petición dentro de la misma etapa, hasta el máximo.
+   * @returns {{text: string, level: number, maxLevel: number}|null} La pista, o null
+   *   si no hay ninguna disponible (en ese caso no cambia el nivel).
+   */
+  requestHint() {
+    const level = Math.min(this.#hintLevel + 1, MAX_HINT_LEVEL);
+    let text;
+    if (this.#stage === "cassette") {
+      text = CASSETTE_STAGE_HINT;
+    } else {
+      const activity = this.#stage === "paper" ? this.#paper : this.#challenge;
+      text = activity?.getHint?.(level) ?? null;
+    }
+
+    if (text === null) {
+      return null;
+    }
+    this.#hintLevel = level;
+    return { text, level, maxLevel: MAX_HINT_LEVEL };
+  }
+
+  /**
+   * Cambia de etapa y reinicia el nivel de pista.
+   * @param {"cassette"|"paper"|"challenge"} stage
+   */
+  #setStage(stage) {
+    this.#stage = stage;
+    this.#hintLevel = 0;
+  }
+
   /** Qué ocurre al escuchar el cassette completo por primera vez. */
   #handleCassetteListened() {
     if (this.#paper) {
+      this.#setStage("paper");
       this.#paper.show();
       this.#view.showMessage("Aparece un papel junto a la grabadora. Complétalo con lo que escuchaste.");
     } else {
@@ -122,6 +166,7 @@ export class RoomController {
 
   /** Muestra el reto final y el mensaje de avance. */
   #showChallenge() {
+    this.#setStage("challenge");
     this.#challenge.show();
     this.#view.showMessage(this.#messages.cassetteSolved);
   }

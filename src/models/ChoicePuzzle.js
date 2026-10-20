@@ -41,6 +41,9 @@ function createScene(scene) {
  * y se avanza con `next()`. Al responder la última escena, el reto termina
  * y `result` indica si se superó. Si no, `restart()` vuelve a empezar.
  *
+ * Una pista puede descartar opciones incorrectas de la escena actual con
+ * `discardWrongOption()`; las opciones descartadas dejan de aparecer en `currentScene`.
+ *
  * No toca la pantalla. La opción correcta nunca se expone en `currentScene`;
  * solo se revela en la respuesta de `answer()`.
  */
@@ -53,6 +56,7 @@ export class ChoicePuzzle {
   #scenes;
   #index = 0;
   #answers = [];
+  #discarded = new Set();
 
   /**
    * @param {Object} data - Un objeto de choices.json.
@@ -125,7 +129,9 @@ export class ChoicePuzzle {
       total: this.#scenes.length,
       narration: scene.narration,
       question: scene.question,
-      options: scene.options.map((option) => ({ ...option })),
+      options: scene.options
+        .filter((option) => !this.#discarded.has(option.id))
+        .map((option) => ({ ...option })),
     };
   }
 
@@ -186,6 +192,28 @@ export class ChoicePuzzle {
   }
 
   /**
+   * Descarta una opción incorrecta de la escena actual (como ayuda de una pista).
+   * Nunca descarta la correcta: como mucho deja solo esa.
+   * @returns {string|null} El id de la opción descartada, o null si no se puede
+   *   descartar ninguna más (la escena ya está respondida o solo queda la correcta).
+   */
+  discardWrongOption() {
+    if (this.isCurrentAnswered) {
+      return null;
+    }
+    const scene = this.#scenes[this.#index];
+    const wrong = scene.options.filter(
+      (option) => option.id !== scene.correctOption && !this.#discarded.has(option.id)
+    );
+    if (wrong.length === 0) {
+      return null;
+    }
+    const removed = wrong[0];
+    this.#discarded.add(removed.id);
+    return removed.id;
+  }
+
+  /**
    * Avanza a la siguiente escena.
    * @returns {boolean} false si ya era la última.
    * @throws {Error} Si la escena actual todavía no se respondió.
@@ -198,6 +226,7 @@ export class ChoicePuzzle {
       return false;
     }
     this.#index += 1;
+    this.#discarded.clear();
     return true;
   }
 
@@ -205,6 +234,7 @@ export class ChoicePuzzle {
   restart() {
     this.#index = 0;
     this.#answers = [];
+    this.#discarded.clear();
     this.#shuffleOptions();
   }
 

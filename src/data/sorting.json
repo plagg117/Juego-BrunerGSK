@@ -4,6 +4,11 @@
     "roomId": "room-01",
     "title": "Las fichas del ordenador",
     "instructions": "El ordenador del laboratorio muestra fichas mezcladas. Colócalas en el cajón correcto: SIGNIFICADO o PROCESAMIENTO DE INFORMACIÓN.",
+    "hints": [
+      "Pregúntate: ¿esta ficha habla de dar sentido al mundo o de reglas y datos?",
+      "Procesamiento de información: reglas precisas, planificación previa, reducir alternativas, ser indiferente a lo almacenado y el vehículo en órbita.",
+      "Significado: construir sentido, actividades simbólicas, vaguedad y polisemia, y la mente de un fundamentalista. Las otras cuatro son de procesamiento."
+    ],
     "categories": [
       { "id": "meaning", "label": "Significado" },
       { "id": "processing", "label": "Procesamiento de información" }
@@ -70,6 +75,11 @@
     "roomId": "room-02",
     "title": "La puerta de las tres cerraduras",
     "instructions": "Cada cerradura de bronce se abre con una de las razones que da Bruner para considerar la cultura fundamental. Coloca cada ficha en la cerradura a la que corresponde.",
+    "hints": [
+      "Pregúntate: ¿esta ficha habla del método, de lo público o de las creencias y deseos?",
+      "Razón metodológica: no basta con estudiar al individuo, la mente se realiza a través de la cultura. Significado público: se comparte y se negocia, hasta los secretos se interpretan.",
+      "Psicología popular: la explicación de la cultura sobre cómo funcionan las personas (creencias, deseos, intenciones) y las instituciones que la inculcan: leyes, educación y familia."
+    ],
     "categories": [
       { "id": "methodological", "label": "Razón metodológica" },
       { "id": "public-meaning", "label": "Significado público" },

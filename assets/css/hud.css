@@ -126,3 +126,51 @@
   outline: 2px solid #8ab4f8;
   outline-offset: 2px;
 }
+
+/* Pistas */
+.hud__hint-bar {
+  margin-top: 0.6rem;
+}
+
+.hud__hint-button {
+  padding: 0.35rem 0.9rem;
+  color: #d9b45a;
+  font: inherit;
+  font-size: 0.9rem;
+  background: transparent;
+  border: 1px solid #d9b45a;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.hud__hint-button:hover:not(:disabled) {
+  background: rgba(217, 180, 90, 0.15);
+}
+
+.hud__hint-button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.hud__hint-button:focus-visible {
+  outline: 2px solid #8ab4f8;
+  outline-offset: 2px;
+}
+
+.hud__hint {
+  margin: 0.5rem 0 0;
+  padding: 0;
+  font-style: italic;
+}
+
+.hud__hint:empty {
+  display: none;
+}
+
+.hud__hint:not(:empty) {
+  padding: 0.5rem 0.8rem;
+  color: #f1e6c4;
+  background: #26231a;
+  border-left: 3px solid #d9b45a;
+  border-radius: 4px;
+}

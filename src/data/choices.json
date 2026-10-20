@@ -4,6 +4,11 @@
     "roomId": "room-03",
     "title": "Escenas del aula",
     "instructions": "El proyector muestra cinco escenas. En cada una, elige la interpretación que defendería Bruner.",
+    "hints": [
+      "Recuerda la idea central de la grabación: decir y hacer van juntos y se interpretan juntos.",
+      "Descarta las opciones que separan lo que se dice de lo que se hace.",
+      "La respuesta correcta es la que une lo dicho, lo hecho y la intención."
+    ],
     "passScore": 4,
     "scenes": [
       {
@@ -78,6 +83,11 @@
     "roomId": "room-05",
     "title": "Los espejos",
     "instructions": "Cada espejo muestra una pregunta o una afirmación. Elige la respuesta que daría Bruner.",
+    "hints": [
+      "Piensa en lo que dijo la grabación sobre perspectivas, compromisos y pluralismo.",
+      "Descarta las respuestas que son absolutas o que renuncian a opinar.",
+      "La correcta pide ser consciente de la propia perspectiva y de la de los demás, y negociar las diferencias."
+    ],
     "passScore": 4,
     "scenes": [
       {
@@ -152,6 +162,11 @@
     "roomId": "room-final",
     "title": "Frente a frente",
     "instructions": "La voz del profesor defiende sus posturas una por una. Elige la réplica que daría Bruner.",
+    "hints": [
+      "Recuerda la conclusión del capítulo: la psicología popular debe ser explicada, no descalificada.",
+      "Descarta las réplicas que aceptan eliminar o ignorar lo cultural.",
+      "La correcta defiende que las creencias y la cultura son parte esencial de cómo se vive juntos."
+    ],
     "passScore": 4,
     "scenes": [
       {

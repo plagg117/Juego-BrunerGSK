@@ -1,3 +1,5 @@
+import { pickHint } from "../utils/hints.js";
+
 /**
  * Controlador del clasificador de fichas.
  *
@@ -8,16 +10,29 @@
 export class SortingController {
   #puzzle;
   #view;
+  #hints;
   #onComplete = () => {};
   #onMistake = () => {};
 
   /**
    * @param {import("../models/SortingPuzzle.js").SortingPuzzle} puzzle
    * @param {import("../views/SortingView.js").SortingView} view
+   * @param {Object} [options]
+   * @param {string[]} [options.hints] - Textos de pista, del más suave al más explícito.
    */
-  constructor(puzzle, view) {
+  constructor(puzzle, view, { hints = [] } = {}) {
     this.#puzzle = puzzle;
     this.#view = view;
+    this.#hints = hints;
+  }
+
+  /**
+   * Devuelve el texto de la pista del nivel indicado.
+   * @param {number} level - Nivel de pista (1 a 3).
+   * @returns {string|null} El texto, o null si no hay pistas para esta actividad.
+   */
+  getHint(level) {
+    return pickHint(this.#hints, level);
   }
 
   /** Dibuja el rompecabezas y conecta sus eventos. */

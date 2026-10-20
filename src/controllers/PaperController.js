@@ -1,3 +1,5 @@
+import { pickHint } from "../utils/hints.js";
+
 /** Milisegundos que se muestra el resultado antes de reiniciar un papel fallido. */
 const RESTART_DELAY_MS = 2500;
 
@@ -12,16 +14,29 @@ const RESTART_DELAY_MS = 2500;
 export class PaperController {
   #sheet;
   #view;
+  #hints;
   #onPenalty = () => {};
   #onComplete = () => {};
 
   /**
    * @param {import("../models/ClozeSheet.js").ClozeSheet} sheet
    * @param {import("../views/PaperView.js").PaperView} view
+   * @param {Object} [options]
+   * @param {string[]} [options.hints] - Textos de pista, del más suave al más explícito.
    */
-  constructor(sheet, view) {
+  constructor(sheet, view, { hints = [] } = {}) {
     this.#sheet = sheet;
     this.#view = view;
+    this.#hints = hints;
+  }
+
+  /**
+   * Devuelve el texto de la pista del nivel indicado.
+   * @param {number} level - Nivel de pista (1 a 3).
+   * @returns {string|null} El texto, o null si no hay pistas para esta actividad.
+   */
+  getHint(level) {
+    return pickHint(this.#hints, level);
   }
 
   /** Dibuja el papel y conecta sus eventos. */

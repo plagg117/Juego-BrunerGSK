@@ -8,20 +8,26 @@ export const COMPANION_STATUS = Object.freeze({
   SAFE: "safe",
 });
 
+/** Pistas que se permiten en cada sala si los datos no indican otra cosa. */
+const DEFAULT_HINTS_PER_ROOM = 3;
+
 /**
  * Valida y copia los datos de una sala.
  * @param {Object} room
  * @returns {Object}
  */
 function createRoom(room) {
-  const { id, order, errorLimit = null } = room;
+  const { id, order, errorLimit = null, hints = DEFAULT_HINTS_PER_ROOM } = room;
   if (!id || !Number.isFinite(order)) {
     throw new Error("GameState: cada sala necesita 'id' y 'order'.");
   }
   if (errorLimit !== null && (!Number.isInteger(errorLimit) || errorLimit < 0)) {
     throw new Error(`GameState: la sala "${id}" tiene un 'errorLimit' inválido.`);
   }
-  return { ...room, errorLimit };
+  if (!Number.isInteger(hints) || hints < 0) {
+    throw new Error(`GameState: la sala "${id}" tiene un número de pistas inválido.`);
+  }
+  return { ...room, errorLimit, hints };
 }
 
 /**
@@ -37,6 +43,8 @@ function createRoom(room) {
  *   el límite de la sala, el profesor se lleva a su compañero (una sola vez).
  * - Al completar una sala, su compañero queda rescatado salvo que ya se haya
  *   perdido.
+ * - Cada sala permite un número limitado de pistas (`hints`). Pedir una pista
+ *   gasta una de ellas, pero no cuenta como error.
  * - La partida termina al completar la última sala. El final es A (todos
  *   salvos) si no se perdió a nadie, y B (algunos salvos) si se perdió a alguien.
  *
@@ -49,6 +57,7 @@ export class GameState {
   #player = null;
   #companionByRoom = new Map();
   #errors = new Map();
+  #hintsUsed = new Map();
   #lost = new Set();
   #rescued = new Set();
   #completed = new Set();
@@ -115,6 +124,7 @@ export class GameState {
     this.#player = player;
     this.#companionByRoom.clear();
     this.#errors.clear();
+    this.#hintsUsed.clear();
     this.#lost.clear();
     this.#rescued.clear();
     this.#completed.clear();
@@ -183,6 +193,34 @@ export class GameState {
   /** Indica si ya se completaron todas las salas. */
   get isFinished() {
     return this.isStarted && this.#completed.size === this.#rooms.length;
+  }
+
+  /** Pistas que quedan en la sala actual. */
+  get hintsLeft() {
+    this.#assertStarted();
+    const room = this.#rooms[this.#index];
+    return Math.max(room.hints - (this.#hintsUsed.get(room.id) ?? 0), 0);
+  }
+
+  /** Pistas que permite la sala actual. */
+  get hintsTotal() {
+    this.#assertStarted();
+    return this.#rooms[this.#index].hints;
+  }
+
+  /**
+   * Gasta una pista de la sala actual. No cuenta como error.
+   * @returns {number} Pistas que quedan.
+   * @throws {Error} Si no quedan pistas o la partida ya terminó.
+   */
+  useHint() {
+    this.#assertPlaying();
+    if (this.hintsLeft === 0) {
+      throw new Error("GameState: ya no quedan pistas en esta sala.");
+    }
+    const room = this.#rooms[this.#index];
+    this.#hintsUsed.set(room.id, (this.#hintsUsed.get(room.id) ?? 0) + 1);
+    return this.hintsLeft;
   }
 
   /**

@@ -54,11 +54,19 @@ const DEFAULT_PAPER_TYPE = "cloze";
  */
 const PAPER_TYPES = {
   cloze: (paper) =>
-    new PaperController(new ClozeSheet(paper), new PaperView(select("#paper-container"))),
+    new PaperController(new ClozeSheet(paper), new PaperView(select("#paper-container")), {
+      hints: paper.hints,
+    }),
   errorHunt: (paper) =>
-    new ErrorHuntController(new ErrorHuntSheet(paper), new ErrorHuntView(select("#paper-container"))),
+    new ErrorHuntController(
+      new ErrorHuntSheet(paper),
+      new ErrorHuntView(select("#paper-container")),
+      { hints: paper.hints }
+    ),
   match: (paper) =>
-    new MatchController(new MatchSheet(paper), new MatchView(select("#paper-container"))),
+    new MatchController(new MatchSheet(paper), new MatchView(select("#paper-container")), {
+      hints: paper.hints,
+    }),
 };
 
 /**
@@ -69,17 +77,23 @@ const CHALLENGE_TYPES = [
   {
     file: "src/data/sorting.json",
     create: (data) =>
-      new SortingController(new SortingPuzzle(data), new SortingView(select("#sorting-container"))),
+      new SortingController(new SortingPuzzle(data), new SortingView(select("#sorting-container")), {
+        hints: data.hints,
+      }),
   },
   {
     file: "src/data/choices.json",
     create: (data) =>
-      new ChoiceController(new ChoicePuzzle(data), new ChoiceView(select("#choice-container"))),
+      new ChoiceController(new ChoicePuzzle(data), new ChoiceView(select("#choice-container")), {
+        hints: data.hints,
+      }),
   },
   {
     file: "src/data/memory.json",
     create: (data) =>
-      new MemoryController(new MemoryPuzzle(data), new MemoryView(select("#memory-container"))),
+      new MemoryController(new MemoryPuzzle(data), new MemoryView(select("#memory-container")), {
+        hints: data.hints,
+      }),
   },
 ];
 

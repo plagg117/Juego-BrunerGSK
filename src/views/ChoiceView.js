@@ -146,6 +146,18 @@ export class ChoiceView {
   }
 
   /**
+   * Quita una opción de la escena actual (cuando una pista la descarta).
+   * @param {string} optionId
+   */
+  removeOption(optionId) {
+    const button = this.#optionButtons.get(optionId);
+    if (button) {
+      button.remove();
+      this.#optionButtons.delete(optionId);
+    }
+  }
+
+  /**
    * Muestra el resultado de la respuesta: marca la opción elegida, revela
    * la correcta si hubo error y muestra la explicación.
    * @param {Object} answer

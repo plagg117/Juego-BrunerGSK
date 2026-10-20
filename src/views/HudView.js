@@ -23,6 +23,10 @@ export class HudView {
   #errors = null;
   #notice = null;
   #actions = null;
+  #hintBar = null;
+  #hintButton = null;
+  #hint = null;
+  #onHintRequest = () => {};
 
   /**
    * @param {HTMLElement} container - Elemento donde se dibujará el panel.
@@ -43,8 +47,9 @@ export class HudView {
    * @param {{name: string, number: number, total: number}} snapshot.room
    * @param {number} snapshot.errors - Errores en la sala actual.
    * @param {number|null} snapshot.limit - Errores permitidos, o null si no hay límite.
+   * @param {{left: number, total: number}} [snapshot.hints] - Pistas que quedan en la sala.
    */
-  render({ player, companions, room, errors, limit }) {
+  render({ player, companions, room, errors, limit, hints }) {
     this.#room.textContent = `Sala ${room.number} de ${room.total} · ${room.name}`;
     this.#player.textContent = `Juegas como ${player.name}`;
 
@@ -63,6 +68,42 @@ export class HudView {
       limit === null
         ? `Errores en esta sala: ${errors}`
         : `Errores en esta sala: ${errors} de ${limit} permitidos`;
+
+    if (hints) {
+      this.#hintBar.hidden = false;
+      this.#hintButton.textContent = `Pedir pista (quedan ${hints.left} de ${hints.total})`;
+      this.#hintButton.disabled = hints.left === 0;
+    }
+  }
+
+  /**
+   * Registra la función que se ejecuta al pulsar «Pedir pista».
+   * @param {() => void} handler
+   */
+  onHintRequest(handler) {
+    this.#onHintRequest = handler;
+  }
+
+  /**
+   * Muestra el texto de una pista.
+   * @param {string} text
+   * @param {Object} info
+   * @param {number} info.level - Nivel de la pista (1 a 3).
+   * @param {number} info.maxLevel - Nivel máximo.
+   */
+  showHint(text, { level, maxLevel }) {
+    this.#hint.textContent = `Pista ${level} de ${maxLevel}: ${text}`;
+  }
+
+  /** Borra el texto de la pista. */
+  clearHint() {
+    this.#hint.textContent = "";
+  }
+
+  /** Oculta el botón de pedir pistas (por ejemplo, al terminar la partida). */
+  hideHints() {
+    this.#hintBar.hidden = true;
+    this.#hint.textContent = "";
   }
 
   /**
@@ -119,6 +160,15 @@ export class HudView {
     this.#notice.setAttribute("role", "status");
     this.#notice.setAttribute("aria-live", "polite");
 
+    this.#hintButton = createButton("Pedir pista", "hud__hint-button", () => this.#onHintRequest());
+    this.#hintBar = createElement("div", "hud__hint-bar");
+    this.#hintBar.hidden = true;
+    this.#hintBar.append(this.#hintButton);
+
+    this.#hint = createElement("p", "hud__hint");
+    this.#hint.setAttribute("role", "status");
+    this.#hint.setAttribute("aria-live", "polite");
+
     this.#actions = createElement("div", "hud__actions");
 
     section.append(
@@ -127,6 +177,8 @@ export class HudView {
       this.#companions,
       this.#errors,
       this.#notice,
+      this.#hintBar,
+      this.#hint,
       this.#actions
     );
     this.#container.replaceChildren(section);

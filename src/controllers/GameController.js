@@ -41,6 +41,7 @@ export class GameController {
     this.#story = story;
     this.#createRoom = createRoom;
     this.#clearContainers = clearContainers;
+    this.#hud.onHintRequest(() => this.#handleHintRequest());
   }
 
   /**
@@ -71,6 +72,7 @@ export class GameController {
     this.#clearContainers();
     this.#hud.hideContinue();
     this.#hud.clearNotice();
+    this.#hud.clearHint();
 
     this.#room = this.#createRoom(this.#roomWithNames(this.#state.currentRoom));
     this.#room.onError(() => this.#handleError());
@@ -95,6 +97,31 @@ export class GameController {
       companions: joinNames(this.#state.companions.map((item) => item.name)),
     };
     return { ...room, intro: fillPlaceholders(intro, names) };
+  }
+
+  /**
+   * El jugador pide una pista: la sala la da (si hay) y se gasta una del
+   * presupuesto de la sala. Si la sala no tiene pista para este momento, no
+   * se gasta nada.
+   */
+  #handleHintRequest() {
+    if (this.#state.isFinished || !this.#room) {
+      return;
+    }
+    if (this.#state.hintsLeft === 0) {
+      this.#hud.showNotice("Ya no quedan pistas en esta sala.", "warning");
+      return;
+    }
+
+    const hint = this.#room.requestHint();
+    if (!hint) {
+      this.#hud.showNotice("Por ahora no hay pistas para esto.", "info");
+      return;
+    }
+
+    this.#state.useHint();
+    this.#hud.showHint(hint.text, hint);
+    this.#refreshHud();
   }
 
   /** Un error del jugador: se registra y se avisa de lo que implica. */
@@ -155,6 +182,7 @@ export class GameController {
     this.#room?.dispose();
     this.#clearContainers();
     this.#hud.hideContinue();
+    this.#hud.hideHints();
     this.#endingView.show(
       {
         type: ending.type,
@@ -178,6 +206,7 @@ export class GameController {
       room: { name: room.name, number: room.number, total: room.total },
       errors: this.#state.errorsIn(room.id),
       limit: room.errorLimit,
+      hints: { left: this.#state.hintsLeft, total: this.#state.hintsTotal },
     });
   }
 }

@@ -1,3 +1,5 @@
+import { pickHint } from "../utils/hints.js";
+
 /**
  * Controlador del reto de escenas con opciones.
  *
@@ -11,16 +13,40 @@
 export class ChoiceController {
   #puzzle;
   #view;
+  #hints;
   #onComplete = () => {};
   #onMistake = () => {};
 
   /**
    * @param {import("../models/ChoicePuzzle.js").ChoicePuzzle} puzzle
    * @param {import("../views/ChoiceView.js").ChoiceView} view
+   * @param {Object} [options]
+   * @param {string[]} [options.hints] - Textos de pista, del más suave al más explícito.
    */
-  constructor(puzzle, view) {
+  constructor(puzzle, view, { hints = [] } = {}) {
     this.#puzzle = puzzle;
     this.#view = view;
+    this.#hints = hints;
+  }
+
+  /**
+   * Devuelve la pista del nivel indicado. En los niveles 2 y 3, además,
+   * descarta una opción incorrecta de la escena actual (si todavía hay alguna)
+   * y el texto describe lo que se descartó.
+   * @param {number} level - Nivel de pista (1 a 3).
+   * @returns {string|null} El texto, o null si no hay pistas para esta actividad.
+   */
+  getHint(level) {
+    if (level >= 2 && !this.#puzzle.isCurrentAnswered) {
+      const removedId = this.#puzzle.discardWrongOption();
+      if (removedId !== null) {
+        this.#view.removeOption(removedId);
+        return this.#puzzle.currentScene.options.length === 1
+          ? "Descarté las opciones incorrectas: queda la correcta."
+          : "Descarté una opción incorrecta.";
+      }
+    }
+    return pickHint(this.#hints, level);
   }
 
   /** Dibuja el reto, muestra la primera escena y conecta los eventos. */

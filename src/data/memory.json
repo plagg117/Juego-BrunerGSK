@@ -4,6 +4,11 @@
     "roomId": "room-04",
     "title": "El código del sótano",
     "instructions": "La puerta metálica pide un código. La pantalla lo mostrará unos segundos. Memorízalo y escríbelo en el teclado.",
+    "hints": [
+      "Recuerda lo que dijo la grabación sobre los bloques (chunks): es más fácil retener pocos bloques que muchos dígitos sueltos.",
+      "Agrupa mentalmente los dígitos de tres en tres, aunque aparezcan juntos.",
+      "Repite los bloques en voz baja, uno detrás de otro, mientras el código está en pantalla."
+    ],
     "rounds": [
       {
         "id": "mr-1",

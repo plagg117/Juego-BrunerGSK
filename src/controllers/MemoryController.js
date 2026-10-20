@@ -1,3 +1,5 @@
+import { pickHint } from "../utils/hints.js";
+
 /**
  * Controlador de la prueba de memoria.
  *
@@ -12,6 +14,7 @@
 export class MemoryController {
   #puzzle;
   #view;
+  #hints;
   #onComplete = () => {};
   #onMistake = () => {};
   #roundStarted = false;
@@ -20,10 +23,22 @@ export class MemoryController {
   /**
    * @param {import("../models/MemoryPuzzle.js").MemoryPuzzle} puzzle
    * @param {import("../views/MemoryView.js").MemoryView} view
+   * @param {Object} [options]
+   * @param {string[]} [options.hints] - Textos de pista, del más suave al más explícito.
    */
-  constructor(puzzle, view) {
+  constructor(puzzle, view, { hints = [] } = {}) {
     this.#puzzle = puzzle;
     this.#view = view;
+    this.#hints = hints;
+  }
+
+  /**
+   * Devuelve el texto de la pista del nivel indicado.
+   * @param {number} level - Nivel de pista (1 a 3).
+   * @returns {string|null} El texto, o null si no hay pistas para esta actividad.
+   */
+  getHint(level) {
+    return pickHint(this.#hints, level);
   }
 
   /** Dibuja la estructura de la prueba y conecta sus eventos. */
