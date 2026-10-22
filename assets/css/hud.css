@@ -174,3 +174,28 @@
   border-left: 3px solid #d9b45a;
   border-radius: 4px;
 }
+
+/* Diálogos de los compañeros */
+.hud__dialogue {
+  margin: 0.6rem 0 0;
+  padding: 0;
+}
+
+.hud__dialogue:empty {
+  display: none;
+}
+
+.hud__dialogue:not(:empty) {
+  padding: 0.5rem 0.8rem;
+  background: #1d2420;
+  border-left: 3px solid #7fb69a;
+  border-radius: 4px;
+}
+
+.hud__speaker {
+  color: #9fd6b8;
+}
+
+.hud__line {
+  font-style: italic;
+}

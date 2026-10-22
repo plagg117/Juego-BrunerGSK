@@ -19,6 +19,7 @@ export class GameController {
   #hud;
   #endingView;
   #story;
+  #dialogues;
   #createRoom;
   #clearContainers;
   #room = null;
@@ -30,15 +31,17 @@ export class GameController {
    * @param {import("../views/HudView.js").HudView} config.hudView
    * @param {import("../views/EndingView.js").EndingView} config.endingView
    * @param {Object} config.story - Datos de story.json (textos de los finales).
+   * @param {Object} config.dialogues - Datos de dialogues.json (lo que dice cada compañero).
    * @param {(room: Object) => import("./RoomController.js").RoomController} config.createRoom
    *   Crea el controlador de una sala a partir de sus datos.
    * @param {() => void} config.clearContainers - Vacía la pantalla de la sala anterior.
    */
-  constructor({ state, hudView, endingView, story, createRoom, clearContainers }) {
+  constructor({ state, hudView, endingView, story, dialogues, createRoom, clearContainers }) {
     this.#state = state;
     this.#hud = hudView;
     this.#endingView = endingView;
     this.#story = story;
+    this.#dialogues = dialogues;
     this.#createRoom = createRoom;
     this.#clearContainers = clearContainers;
     this.#hud.onHintRequest(() => this.#handleHintRequest());
@@ -73,6 +76,7 @@ export class GameController {
     this.#hud.hideContinue();
     this.#hud.clearNotice();
     this.#hud.clearHint();
+    this.#hud.clearDialogue();
 
     this.#room = this.#createRoom(this.#roomWithNames(this.#state.currentRoom));
     this.#room.onError(() => this.#handleError());
@@ -80,6 +84,29 @@ export class GameController {
     this.#room.start();
 
     this.#refreshHud();
+    const room = this.#state.currentRoom;
+    const companion = this.#state.companionOf(room.id);
+    if (companion) {
+      this.#say(companion, "room", room.id);
+    }
+  }
+
+  /**
+   * Muestra en el panel lo que dice un compañero.
+   * @param {{id: string, name: string}} character
+   * @param {"room"|"rescued"|"lost"} key - Qué línea de ese personaje se usa.
+   * @param {string} [roomId] - Sala de la que habla (solo para la línea «room»).
+   */
+  #say(character, key, roomId) {
+    const lines = this.#dialogues.characters[character.id];
+    const text = key === "room" ? lines?.rooms?.[roomId] : lines?.[key];
+    if (!text) {
+      return;
+    }
+    this.#hud.showDialogue({
+      speaker: character.name,
+      text: fillPlaceholders(text, { player: this.#state.player.name }),
+    });
   }
 
   /**
@@ -131,6 +158,7 @@ export class GameController {
 
     if (result.lostCompanion) {
       this.#hud.showNotice(`El profesor se lleva a ${result.lostCompanion.name}.`, "bad");
+      this.#say(result.lostCompanion, "lost");
       return;
     }
 
@@ -153,6 +181,7 @@ export class GameController {
 
     if (result.rescued) {
       this.#hud.showNotice(`${result.rescued.name} sale de su celda.`, "good");
+      this.#say(result.rescued, "rescued");
     } else if (result.lost) {
       this.#hud.showNotice(`${result.lost.name} ya no está: el profesor se lo llevó.`, "bad");
     } else {
@@ -183,9 +212,11 @@ export class GameController {
     this.#clearContainers();
     this.#hud.hideContinue();
     this.#hud.hideHints();
+    this.#hud.clearDialogue();
     this.#endingView.show(
       {
         type: ending.type,
+        revelation: this.#story.revelation,
         title: texts.title,
         paragraphs: texts.paragraphs.map((paragraph) => fillPlaceholders(paragraph, names)),
         restartLabel: this.#story.restartLabel,

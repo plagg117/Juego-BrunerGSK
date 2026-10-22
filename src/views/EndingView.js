@@ -25,11 +25,22 @@ export class EndingView {
    * @param {string} ending.title
    * @param {string[]} ending.paragraphs
    * @param {string} ending.restartLabel - Texto del botón de jugar de nuevo.
+   * @param {{title: string, paragraphs: string[]}} [ending.revelation] - Si se da, se
+   *   muestra antes del final (por ejemplo, la verdad sobre el profesor).
    * @param {() => void} onRestart
    */
-  show({ type, title, paragraphs, restartLabel }, onRestart) {
+  show({ type, title, paragraphs, restartLabel, revelation }, onRestart) {
     const section = createElement("section", `ending is-${type}`);
     section.setAttribute("aria-label", title);
+
+    if (revelation) {
+      const reveal = createElement("div", "ending__revelation");
+      reveal.append(createElement("h2", "ending__chapter", revelation.title));
+      revelation.paragraphs.forEach((paragraph) =>
+        reveal.append(createElement("p", "ending__revelation-text", paragraph))
+      );
+      section.append(reveal);
+    }
 
     const story = createElement("div", "ending__story");
     paragraphs.forEach((paragraph) =>

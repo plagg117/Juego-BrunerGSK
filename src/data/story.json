@@ -19,7 +19,7 @@
       "paragraphs": [
         "La última puerta se abre y el aire frío de la madrugada entra en el despacho.",
         "Salen los cinco, juntos. Compañeros que salieron contigo: {survivors}.",
-        "Atrás queda el edificio en medio del campo. En el despacho, la grabadora sigue girando sola, y nadie ha vuelto a ver al Dr. Jhon Alexander.",
+        "Esta vez, el doctor no tuvo a quién llevarse. En el despacho, la grabadora sigue girando sola, y nadie ha vuelto a ver al Dr. Jhon Alexander.",
         "En tu celular, por fin, vuelve una barra de señal."
       ]
     },
@@ -27,10 +27,19 @@
       "title": "Final B: algunos salvos",
       "paragraphs": [
         "La última puerta se abre, pero el edificio ya no está tan lleno como cuando empezaron.",
-        "Compañeros que salieron contigo: {survivors}. Compañeros que se perdieron: {lost}.",
-        "Nadie sabe explicar dónde están. En el despacho, la grabadora sigue girando sola, y del Dr. Jhon Alexander no queda rastro.",
-        "En tu celular, por fin, vuelve una barra de señal. Para algunos, demasiado tarde."
+        "Compañeros que salieron contigo: {survivors}. Compañeros que no salieron: {lost}.",
+        "Nadie volvió a verlos. En el despacho, la grabadora sigue girando sola, y del Dr. Jhon Alexander no queda rastro.",
+        "En tu celular, por fin, vuelve una barra de señal. Para algunos, ya era tarde."
       ]
     }
+  },
+  "revelation": {
+    "title": "La verdad del despacho",
+    "paragraphs": [
+      "Sobre el escritorio hay una carpeta con cartas de la facultad. La primera es de hace tres años: «El curso Psicología y significado queda eliminado del plan de estudios por falta de utilidad».",
+      "Debajo está el programa del curso, subrayado a mano. La primera lectura es El estudio apropiado del hombre. En el margen, con la letra del Dr. Jhon Alexander: «Nadie lo leerá si no los obligo».",
+      "Lo que dijo en los cassettes, la mente-máquina, la psicología sin significado, era justo lo que el nuevo currículo enseñaba. Quiso que lo vivieran en carne propia, y que la única salida fuera entender a Bruner.",
+      "Pero hay algo que el programa no explica: lo que hizo con quienes no aprendieron. Para el doctor, cada estudiante perdido era una prueba de su tesis. El retrato sin terminar es suyo: el del profesor que quiso ser, pintado por alguien del curso que ya no existe."
+    ]
   }
 }

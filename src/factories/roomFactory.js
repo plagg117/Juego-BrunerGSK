@@ -112,17 +112,18 @@ export function select(selector) {
 
 /**
  * Carga todos los archivos de datos del juego.
- * @returns {Promise<{characters: Object[], story: Object, rooms: Object[], cassettes: Object[], challengeLists: Object[][]}>}
+ * @returns {Promise<{characters: Object[], story: Object, dialogues: Object, rooms: Object[], cassettes: Object[], challengeLists: Object[][]}>}
  */
 export async function loadGameData() {
-  const [characters, story, rooms, cassettes, ...challengeLists] = await Promise.all([
+  const [characters, story, dialogues, rooms, cassettes, ...challengeLists] = await Promise.all([
     loadJson("src/data/characters.json"),
     loadJson("src/data/story.json"),
+    loadJson("src/data/dialogues.json"),
     loadJson("src/data/rooms.json"),
     loadJson("src/data/cassettes.json"),
     ...CHALLENGE_TYPES.map((type) => loadJson(type.file)),
   ]);
-  return { characters, story, rooms, cassettes, challengeLists };
+  return { characters, story, dialogues, rooms, cassettes, challengeLists };
 }
 
 /**

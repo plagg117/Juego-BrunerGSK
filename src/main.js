@@ -1,9 +1,10 @@
 /**
  * Punto de entrada del juego.
- * Carga los datos, crea el estado de la partida y el panel de estado, y
- * pone en marcha el controlador del juego.
+ * Carga los datos y arma la partida: el estado, el panel de estado, el
+ * controlador del juego y la pantalla de inicio.
  *
- * Para probar, la dirección admite dos parámetros opcionales:
+ * Para probar, la dirección admite dos parámetros opcionales. Con cualquiera
+ * de los dos se omite la pantalla de inicio:
  *   ?room=room-03        empieza en esa sala (las anteriores cuentan como completadas)
  *   ?player=felipe       juega con ese personaje (si no, se elige uno al azar)
  */
@@ -35,6 +36,7 @@ async function startGame() {
     hudView: hud,
     endingView: new EndingView(select("#ending-container")),
     story: data.story,
+    dialogues: data.dialogues,
     createRoom: (room) => createRoomController(room, data),
     clearContainers: clearRoomContainers,
   });

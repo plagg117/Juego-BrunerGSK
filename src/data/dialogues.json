@@ -1,0 +1,54 @@
+{
+  "characters": {
+    "gabriela": {
+      "rooms": {
+        "room-01": "{player}, escucha bien la grabación y anota todo. Lo que se puede medir se puede comprobar.",
+        "room-02": "Estudiar solo al individuo es medir con media regla. Aquí hay que mirar el contexto, {player}.",
+        "room-03": "Lo que alguien dice y lo que hace deben coincidir. Si no, algo esconde, {player}.",
+        "room-04": "Respira y agrupa. Siete elementos, más o menos dos: es lo que podemos retener, {player}. Usa bloques."
+      },
+      "rescued": "Gracias, {player}. Sigamos juntos: yo tomo nota de todo lo que veamos.",
+      "lost": "Sigue sin mí, {player}. Anota todo. No te detengas."
+    },
+    "felipe": {
+      "rooms": {
+        "room-01": "Una mente es un procesador, ¿no? Aunque este profesor me da mala espina, {player}: demasiado entusiasmo para ser un simple programa.",
+        "room-02": "Cultura, cultura... ¿cómo se mide eso, {player}? Aun así, no me río: nadie piensa solo, ni siquiera yo.",
+        "room-03": "Siempre dije que lo que la gente cuenta de sí misma es puro cuento. Aquí empiezo a dudar, {player}.",
+        "room-04": "Un buen sistema de codificación vale más que una buena memoria. Divide el código, {player}."
+      },
+      "rescued": "No lo diré dos veces: gracias, {player}. Ahora sí tengo curiosidad por saber qué quiere este tipo.",
+      "lost": "Parece que sí era algo más que un programa, {player}. Sal de aquí."
+    },
+    "karen": {
+      "rooms": {
+        "room-01": "No me importa cuántos datos procese: lo que cuenta es qué significa estar aquí, {player}.",
+        "room-02": "Nadie piensa solo, {player}: todo lo que sabemos nos lo dieron otros. Eso quiere que entendamos.",
+        "room-03": "Dime «lo siento» mientras me empujas y sabré cómo interpretar el empujón, {player}. Las dos cosas van juntas.",
+        "room-04": "Mi abuela guardaba los teléfonos como si fueran canciones. Convierte el código en algo con sentido, {player}."
+      },
+      "rescued": "Qué alivio, {player}. Cada cosa que aprendimos ahí dentro nos acerca a la salida.",
+      "lost": "No dejes de preguntarte qué significa todo esto, {player}. Prométemelo."
+    },
+    "mariana": {
+      "rooms": {
+        "room-01": "¿Y si todo esto depende de cómo se mire? No sé... ¡dime que tienes un plan, {player}!",
+        "room-02": "Todo depende de dónde se mire, ¿verdad? Ay, ¿por qué siempre me toca la puerta con más cerraduras?",
+        "room-03": "Cuando me pongo nerviosa digo una cosa y hago otra. ¿Eso también cuenta, {player}?",
+        "room-04": "Uno, dos, tres... ¡se me olvida! ¿Era de tres en tres, {player}?"
+      },
+      "rescued": "¡Estoy libre! Gracias, {player}. Prometo no desmayarme... demasiado.",
+      "lost": "¡{player}, no me dejes! ¡No, por favor!"
+    },
+    "sofia": {
+      "rooms": {
+        "room-01": "Fíjate en lo que hace el doctor, no en lo que dice. Ahí está la pista, {player}.",
+        "room-02": "Mira los huecos de los estantes, {player}. Alguien sacó libros de aquí hace tiempo.",
+        "room-03": "Mira lo que hacen y escucha lo que dicen que hacen. Las dos cosas, {player}.",
+        "room-04": "Mientras él habla, cuenta sus pausas. Los bloques están en el ritmo, {player}."
+      },
+      "rescued": "Gracias. Te vi resolverlo. Quédate cerca, {player}: algo no cuadra en este edificio.",
+      "lost": "Lo vi venir, {player}. Mira lo que hace, no lo que dice."
+    }
+  }
+}

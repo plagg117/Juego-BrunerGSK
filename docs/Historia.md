@@ -14,6 +14,16 @@ Cinco estudiantes son invitados a un seminario especial de Psicología cognitiva
 
 **Dr. Jhon Alexander.** Cordial, muy inteligente y pausado. Se comunica con los estudiantes a través de grabaciones en cassette. Defiende una visión de la mente como máquina (ver Sala 1) y trata a las personas como si fueran información que se procesa.
 
+### El motivo del profesor (decidido)
+
+**El currículo que desapareció.** Hace tres años la facultad eliminó el curso del Dr. Alexander, *Psicología y significado*, «por falta de utilidad». Ese curso se basaba en el texto de Bruner. El doctor defendió esa lectura durante años, y diseñó el seminario como la forma de obligar a leerla: «Nadie lo leerá si no los obligo».
+
+- Lo que dice en los cassettes (la mente-máquina, la psicología sin significado) es lo que el nuevo currículo enseñaba. Quiso que los estudiantes lo vivieran en carne propia.
+- **Sí es un asesino.** Para él, cada estudiante que no aprende es una prueba de su tesis. Los compañeros que se pierden **no vuelven**.
+- La revelación está en `src/data/story.json` (campo `revelation`) y se muestra en la pantalla del final, antes del desenlace.
+- **Pistas sembradas:** la etiqueta vacía «Psicología y significado» en la biblioteca, el horario con una línea tachada en el aula, la frase de Sofía sobre los huecos de los estantes, y las frases de los cassettes 1 y 3 («yo me quedé con la mente-máquina», «una idea que a mí, lo confieso, me incomoda»).
+- El retrato sin terminar del despacho es el suyo: el del profesor que quiso ser (guiño al pasaje de Picasso del capítulo).
+
 ## Los estudiantes
 
 Uno de estos cinco es el jugador, que elige quién ser al comenzar. Los otros cuatro pasan a ser sus compañeros.
@@ -85,8 +95,5 @@ Los textos de inicio y de final no están en el código, sino en archivos de dat
 
 ## Pendiente por definir
 
-- Motivo del profesor y la revelación en el despacho final.
-- Pistas sobre ese motivo repartidas en los cassettes y en cada sala.
-- Ajustar los límites de errores al probar el juego (ver `docs/reglas-de-errores.md`).
-- Texto de cada final.
-- Guiones de las salas 2 a 5 y del despacho final.
+- Ajustar los límites de errores y el número de pistas al probar el juego (ver `docs/reglas-de-errores.md` y `docs/pistas.md`).
+- Revisar los textos de la revelación y de los finales (están en `src/data/story.json`, borradores míos).

@@ -22,6 +22,7 @@ export class HudView {
   #companions = null;
   #errors = null;
   #notice = null;
+  #dialogue = null;
   #actions = null;
   #hintBar = null;
   #hintButton = null;
@@ -107,6 +108,24 @@ export class HudView {
   }
 
   /**
+   * Muestra lo que dice un personaje.
+   * @param {Object} line
+   * @param {string} line.speaker - Nombre de quien habla.
+   * @param {string} line.text - Lo que dice (ya con los nombres puestos).
+   */
+  showDialogue({ speaker, text }) {
+    this.#dialogue.replaceChildren(
+      createElement("strong", "hud__speaker", `${speaker}: `),
+      createElement("span", "hud__line", `«${text}»`)
+    );
+  }
+
+  /** Borra el diálogo actual. */
+  clearDialogue() {
+    this.#dialogue.replaceChildren();
+  }
+
+  /**
    * Muestra un aviso.
    * @param {string} text
    * @param {"info"|"warning"|"bad"|"good"} [tone="info"]
@@ -156,6 +175,10 @@ export class HudView {
     this.#companions = createElement("ul", "hud__companions");
     this.#errors = createElement("p", "hud__errors");
 
+    this.#dialogue = createElement("p", "hud__dialogue");
+    this.#dialogue.setAttribute("role", "status");
+    this.#dialogue.setAttribute("aria-live", "polite");
+
     this.#notice = createElement("p", "hud__notice");
     this.#notice.setAttribute("role", "status");
     this.#notice.setAttribute("aria-live", "polite");
@@ -176,6 +199,7 @@ export class HudView {
       this.#player,
       this.#companions,
       this.#errors,
+      this.#dialogue,
       this.#notice,
       this.#hintBar,
       this.#hint,

@@ -70,10 +70,14 @@ Ambos finales dependen de la regla de compañeros perdidos (ver `docs/reglas-de-
 
 ## Pendiente de esta sala
 
-- **El motivo del profesor.** La historia lo deja en misterio hasta el final, pero hay que decidir cuál es y dónde se revela (después del debate, probablemente).
-- **Dónde se muestra el profesor.** En los datos, su voz sale de un altavoz. Hay que decidir si aparece en persona en el desenlace.
-- **Textos de los finales** y la pantalla de cierre.
+- **La revelación del motivo** ya está escrita: se muestra en la pantalla del final, antes del desenlace (ver `docs/historia.md`). El motivo es el currículo que desapareció y el profesor es un asesino.
+- **Dónde se muestra el profesor.** Por ahora solo se oye su voz desde un altavoz; no aparece en persona. Es una decisión abierta.
+- **Revisar los textos** de la revelación y de los finales (borradores míos en `src/data/story.json`).
 - **Compañeros:** esta sala no pone a nadie en juego (`errorLimit: null`). Al superar el debate se abre la puerta y el final (A o B) depende de a cuántos compañeros se perdió antes (ver `docs/reglas-de-errores.md`).
+
+## Pistas
+
+Las pistas de esta sala (papel de unir y debate) están en `docs/pistas.md`.
 
 ## Notas
 

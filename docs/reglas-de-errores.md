@@ -9,6 +9,7 @@ Cada sala tiene un **límite de errores**. Cuando el jugador comete más errores
 - El límite se tolera: con límite 3, los errores 1 a 3 no tienen consecuencia y el **cuarto** hace que se pierda el compañero.
 - Un compañero se pierde **una sola vez**: seguir equivocándose no pierde a nadie más.
 - Perder al compañero **no bloquea la sala**: el jugador puede seguir y completarla.
+- Un compañero perdido **no vuelve**: el profesor es un asesino. Por eso el final B habla de quienes «no salieron».
 - Los errores de una sala no se arrastran a la siguiente.
 
 ## Límites por sala
@@ -80,4 +81,5 @@ Se pueden combinar: `index.html?player=karen&room=room-04`.
 ## Estado
 
 - Hecho: el modelo `GameState` (con pruebas), los datos (`characters.json` y `errorLimit` en `rooms.json`), el panel de estado, el controlador de la partida, el avance automático entre salas, la pantalla de inicio, los nombres en los textos y las pantallas de los finales.
-- Por hacer: las pistas progresivas, los textos definitivos de los finales y la revelación del motivo del profesor.
+- Hecho también: las pistas progresivas (ver `docs/pistas.md`).
+- Por hacer: los textos definitivos de los finales y la revelación del motivo del profesor.

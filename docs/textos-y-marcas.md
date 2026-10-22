@@ -8,10 +8,13 @@ Los textos que ve el jugador viven en archivos de datos, no en el código. Algun
 |-------|---------|-------|
 | Título del juego, prólogo y textos de la elección de personaje | `src/data/story.json` | `title`, `prologue`, `characterSelection` |
 | Finales A y B | `src/data/story.json` | `endings.A`, `endings.B` |
+| Revelación del motivo del profesor | `src/data/story.json` | `revelation` |
+| Frases de los compañeros | `src/data/dialogues.json` | `characters` (ver `docs/dialogos-companeros.md`) |
 | Narración de entrada de cada sala | `src/data/rooms.json` | `intro` |
 | Frase del compañero que está en juego en la sala | `src/data/rooms.json` | `companionIntro` |
 | Personajes (nombre, personalidad, postura) | `src/data/characters.json` | |
 | Guion de cada cassette | `src/data/cassettes.json` | `transcript` |
+| Pistas de cada actividad | `cassettes.json` (dentro de `paper`), `sorting.json`, `choices.json` y `memory.json` | `hints` |
 
 ## Marcas disponibles
 
@@ -39,4 +42,4 @@ Una marca desconocida se deja tal cual en pantalla, para que se note el error al
 
 ## Borradores de los finales
 
-Los finales A y B de `story.json` son **borradores**. Ambos dejan abierta la desaparición del Dr. Jhon Alexander, para no comprometer el motivo, que todavía no se ha decidido. Cuando se decida, bastará con editar los párrafos de `endings`.
+Los finales A y B y la revelación de `story.json` son **borradores**. Ambos finales dejan abierto el paradero del Dr. Jhon Alexander. Basta con editar los párrafos de `endings` y de `revelation` para cambiarlos.
