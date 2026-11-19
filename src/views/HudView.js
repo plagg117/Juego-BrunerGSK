@@ -1,4 +1,4 @@
-import { createElement, createButton } from "../utils/dom.js";
+import { createElement, createButton, scrollToElement } from "../utils/dom.js";
 
 /** Texto con el que se describe a cada compañero según su estado (sin marcar género). */
 const STATUS_TEXT = Object.freeze({
@@ -155,6 +155,11 @@ export class HudView {
   /** Quita el botón de continuar. */
   hideContinue() {
     this.#actions.replaceChildren();
+  }
+
+  /** Lleva la pantalla hasta el panel (por ejemplo, para que se vea un aviso importante). */
+  bringIntoView() {
+    scrollToElement(this.#container);
   }
 
   /**

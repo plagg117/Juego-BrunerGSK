@@ -1,4 +1,4 @@
-import { createElement, createButton } from "../utils/dom.js";
+import { createElement, createButton, scrollToElement } from "../utils/dom.js";
 
 /**
  * Vista de la pantalla de desenlace. Muestra el título del final, su relato
@@ -53,6 +53,7 @@ export class EndingView {
     this.#container.hidden = false;
     this.#container.replaceChildren(section);
     button.focus();
+    scrollToElement(this.#container);
   }
 
   /** Oculta y vacía el final. */

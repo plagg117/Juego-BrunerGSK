@@ -1,3 +1,5 @@
+import { scrollToElement } from "../utils/dom.js";
+
 /** Marca que indica dónde va el espacio en blanco dentro de una oración. */
 const BLANK_MARKER = "___";
 
@@ -85,6 +87,9 @@ export class PaperView {
    */
   setVisible(isVisible) {
     this.#container.hidden = !isVisible;
+    if (isVisible) {
+      scrollToElement(this.#container);
+    }
   }
 
   /**

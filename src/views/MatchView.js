@@ -1,4 +1,4 @@
-import { createElement, createButton } from "../utils/dom.js";
+import { createElement, createButton, scrollToElement } from "../utils/dom.js";
 
 /** Milisegundos que dura el aviso visual de una unión incorrecta. */
 const WRONG_FLASH_MS = 600;
@@ -77,6 +77,9 @@ export class MatchView {
    */
   setVisible(isVisible) {
     this.#container.hidden = !isVisible;
+    if (isVisible) {
+      scrollToElement(this.#container);
+    }
   }
 
   /**

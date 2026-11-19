@@ -1,4 +1,4 @@
-import { createElement, createButton } from "../utils/dom.js";
+import { createElement, createButton, scrollToElement } from "../utils/dom.js";
 
 /**
  * Vista del rompecabezas de clasificación.
@@ -156,6 +156,9 @@ export class SortingView {
    */
   setVisible(isVisible) {
     this.#container.hidden = !isVisible;
+    if (isVisible) {
+      scrollToElement(this.#container);
+    }
   }
 
   /**

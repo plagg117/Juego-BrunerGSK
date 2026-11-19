@@ -1,0 +1,72 @@
+/*
+ * Ajustes para celular y pantallas táctiles.
+ * Debe cargarse DESPUÉS de los demás estilos del juego.
+ */
+
+/* Evita el retraso y el zoom por doble toque en los botones. */
+button {
+  touch-action: manipulation;
+}
+
+/* Zonas táctiles de al menos 44 px de alto (recomendación para dedos). */
+@media (pointer: coarse) {
+  .cassette-player__button,
+  .paper__word,
+  .paper__blank,
+  .errorhunt__statement,
+  .errorhunt__button,
+  .match__item,
+  .sorting__item,
+  .sorting__bin-target,
+  .sorting__button,
+  .choice__option,
+  .choice__button,
+  .memory__input,
+  .memory__button,
+  .hud__button,
+  .hud__hint-button,
+  .start__character,
+  .start__button,
+  .ending__button {
+    min-height: 44px;
+  }
+
+  .hud__companions,
+  .paper__bank,
+  .cassette-player__controls,
+  .sorting__actions,
+  .choice__actions {
+    gap: 0.6rem;
+  }
+}
+
+/* Pantallas angostas: menos márgen lateral para aprovechar el ancho. */
+@media (max-width: 520px) {
+  .start,
+  .ending,
+  .cassette-player,
+  .paper,
+  .errorhunt,
+  .match,
+  .sorting,
+  .choice,
+  .memory {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 1rem;
+  }
+
+  .hud {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 0.75rem 0.85rem;
+  }
+
+  .room {
+    padding: 0 0.75rem;
+  }
+
+  .start__title {
+    font-size: 1.35rem;
+  }
+}

@@ -89,6 +89,7 @@ export class GameController {
     if (companion) {
       this.#say(companion, "room", room.id);
     }
+    this.#hud.bringIntoView();
   }
 
   /**
@@ -159,6 +160,7 @@ export class GameController {
     if (result.lostCompanion) {
       this.#hud.showNotice(`El profesor se lleva a ${result.lostCompanion.name}.`, "bad");
       this.#say(result.lostCompanion, "lost");
+      this.#hud.bringIntoView();
       return;
     }
 
@@ -192,6 +194,7 @@ export class GameController {
       this.#showEnding();
       return;
     }
+    this.#hud.bringIntoView();
     this.#hud.showContinue("Pasar a la siguiente sala", () => {
       this.#state.advance();
       this.#playCurrentRoom();

@@ -30,3 +30,18 @@ export function createButton(text, className, onClick) {
   button.addEventListener("click", onClick);
   return button;
 }
+
+/**
+ * Lleva la pantalla hasta un elemento, con desplazamiento suave (o directo, si
+ * la persona prefiere menos movimiento). Útil en el celular, donde lo nuevo
+ * suele aparecer fuera de la zona visible.
+ *
+ * @param {HTMLElement} element - Elemento que debe quedar a la vista.
+ */
+export function scrollToElement(element) {
+  if (typeof element.scrollIntoView !== "function") {
+    return;
+  }
+  const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  element.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+}

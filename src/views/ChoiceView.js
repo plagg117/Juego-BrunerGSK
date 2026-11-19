@@ -1,4 +1,4 @@
-import { createElement, createButton } from "../utils/dom.js";
+import { createElement, createButton, scrollToElement } from "../utils/dom.js";
 
 /**
  * Vista del reto de escenas con opciones.
@@ -104,6 +104,9 @@ export class ChoiceView {
    */
   setVisible(isVisible) {
     this.#container.hidden = !isVisible;
+    if (isVisible) {
+      scrollToElement(this.#container);
+    }
   }
 
   /**

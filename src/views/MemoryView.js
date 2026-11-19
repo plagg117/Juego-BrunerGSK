@@ -1,4 +1,4 @@
-import { createElement, createButton } from "../utils/dom.js";
+import { createElement, createButton, scrollToElement } from "../utils/dom.js";
 
 /** Símbolo con el que se tapan los dígitos cuando el código se oculta. */
 const MASK_CHARACTER = "•";
@@ -112,6 +112,9 @@ export class MemoryView {
    */
   setVisible(isVisible) {
     this.#container.hidden = !isVisible;
+    if (isVisible) {
+      scrollToElement(this.#container);
+    }
   }
 
   /**
